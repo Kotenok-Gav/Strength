@@ -1,6 +1,7 @@
 import { PlusIcon } from "@heroicons/react/24/solid";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Tool from '../components/input/Tooltip';
 
 function Forms() {
   const [bdf, setBdf] = useState([]);
@@ -33,23 +34,31 @@ function Forms() {
   }, []);
 
   return (
-    <div className="bg-slate-900 text-white h-screen relative">
-      <div className="flex flex-col w-full p-10">
-        <h1 className="text-5xl text-center pb-5">Todo App</h1>
-        <div className="flex items-center justify-between bg-slate-700 rounded-xl px-4">
-          <input
-            value={text}
-            onChange={e => setText(e.target.value)}
-            type="text"
-            className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-            placeholder="1"
-          />
+    <div className="container">
 
-          <i onClick={addBdfHandler}>
-            <PlusIcon className="h-5 w-5 cursor-pointer hover:opacity-70" />
-          </i>
+      <div className="flex flex-col w-full p-10">
+
+        <h1 className="text-5xl text-center pb-5">BDF</h1>
+
+
+
+
+        <div className="flex items-center justify-between bg-slate-700 rounded-xl px-4">
+
+            <input
+              value={text}
+              onChange={e => setText(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1"
+            />
+            <Tool text="Lorem fhdfhgdf fjdfghfdg fdgjakgfpghdf"></Tool>
+
+
         </div>
+
         <br></br>
+
         <div className="flex items-center justify-between bg-slate-700 rounded-xl px-4">
           <input
             value={start_rocket}
