@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./style.css";
 
 const Tool = ({ text, children }) => {
@@ -23,13 +23,11 @@ const Tool = ({ text, children }) => {
         >
           ?
         </span>
-        
+
         {showTooltip && <div className="tooltip">{text}</div>}
       </div>
     </div>
   );
 };
-
-
 
 export default Tool;
