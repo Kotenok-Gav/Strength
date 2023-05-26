@@ -22,7 +22,8 @@ def bdf_list(request):
     if request.method == "POST":
         text = request.data.get("text")
         start_rocket = request.data.get("start_rocket")
-        bd = Rockets_bdf.objects.create(text=text, start_rocket=start_rocket)
+        t = request.data.get("t")
+        bd = Rockets_bdf.objects.create(text=text, start_rocket=start_rocket, t=t)
         serializer = bdfSerializer(bd)
         return Response(serializer.data, status=HTTP_200_OK)
 

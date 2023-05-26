@@ -5,13 +5,15 @@ import Tool from "../components/input/Tooltip";
 function Forms() {
   const [bdf, setBdf] = useState([]);
   const [text, setText] = useState("");
-  const [start_rocket, setStart_rocket] = useState("");
+  const [start_rocket, setStart_rocket] = useState();
+  const [t, sett] = useState();
 
   const addBdfHandler = () => {
     const postBdf = async () => {
       const postBdfdata = {
         text: text,
         start_rocket: start_rocket,
+        t: t,
       };
       const { data } = await axios.post(
         "http://127.0.0.1:8000/bdf/",
@@ -20,6 +22,7 @@ function Forms() {
       setBdf([...bdf, data]);
       setText("");
       setStart_rocket("");
+      sett("");
     };
     postBdf();
   };
@@ -38,8 +41,10 @@ function Forms() {
         <div className="flex flex-col w-full p-10">
           <h1 className="text-3xl text-center pb-5">BDF файл</h1>
 
+          <p className="pb-3 pl-5 text-2xl">1  Общие данные</p>
+
           {/* 1 */}
-          <p className="pb-3 pl-5 text-xl">Название проекта</p>
+          <p className="pb-3 pl-5 text-xl">1.1  Название проекта</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={text}
@@ -54,7 +59,7 @@ function Forms() {
           <br></br>
 
           {/* 2 */}
-          <p className="pb-3 pl-5 text-xl">Введите 0, если старт подводный,     1 - наземный</p>
+          <p className="pb-3 pl-5 text-xl">1.2 Определение старта ракеты</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={start_rocket}
@@ -63,7 +68,22 @@ function Forms() {
               className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
               placeholder="0"
             />
-            <Tool text="Укажите название проекта"></Tool>
+            <Tool text="Введите 0, если старт подводный,     1 - наземный"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3 */}
+          <p className="pb-3 pl-5 text-xl">1.3 Время выхода ракеты из контейнера в секундах </p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t}
+              onChange={e => sett(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="5.673"
+            />
+            <Tool text="С точностью до тысячных"></Tool>
           </div>
 
           <br></br>
@@ -84,6 +104,7 @@ function Forms() {
               >
                 <p>{bdf.text}</p>
                 <p>{bdf.start_rocket}</p>
+                <p>{bdf.t}</p>
               </div>
             ))}
           </div>
