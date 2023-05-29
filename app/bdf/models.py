@@ -44,6 +44,29 @@ class Rockets_bdf(models.Model):
     L_Kon = models.DecimalField(decimal_places=1, max_digits=4)
 
     #------------------------------------------------------------------------
+
+    # 3 Параметры опорно-ведущих поясов (ОВП)
+    # 3.1 Количество опорно-ведущих поясов (ОВП):  Введите число от 1 до 5
+    kolichestvo_amort = models.PositiveSmallIntegerField() 
+
+    # 3.2 Жесткость ОВП:  МН/м (с точностью до десятых)
+    zhestkost_amort = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 3.3.1 Введите расстояние: от нижнего края ракеты до верхнего (первого) пояса амортизации в м с точностью до десятых
+    X1 = models.DecimalField(decimal_places=1, max_digits=6)
+
+    # 3.3.2 Введите расстояние: от нижнего края ракеты до второго пояса амортизации в м с точностью до десятых
+    X2 = models.DecimalField(decimal_places=1, max_digits=6, null = True, blank=True)
+
+    # 3.3.3 Введите расстояние: от нижнего края ракеты до третьегопояса амортизации в м с точностью до десятых
+    X3 = models.DecimalField(decimal_places=1, max_digits=6, null = True, blank=True)
+
+    # 3.3.4 Введите расстояние: от нижнего края ракеты до четвертого пояса амортизации в м с точностью до десятых
+    X4 = models.DecimalField(decimal_places=1, max_digits=6, null = True, blank=True)
+
+    # 3.3.5 Введите расстояние: от нижнего края ракеты до пятого пояса амортизации в м с точностью до десятых
+    X5 = models.DecimalField(decimal_places=1, max_digits=6, null = True, blank=True)
+    
     
 
     
