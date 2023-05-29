@@ -66,6 +66,96 @@ class Rockets_bdf(models.Model):
 
     # 3.3.5 Введите расстояние: от нижнего края ракеты до пятого пояса амортизации в м с точностью до десятых
     X5 = models.DecimalField(decimal_places=1, max_digits=6, null = True, blank=True)
+
+
+    #------------------------------------------------------------------------
+
+    # 4 Граничные и начальные условия
+    # 4.1 Скорость бокового набегающего потока:  м/с
+    V_sredy = models.DecimalField(decimal_places=1, max_digits=5, help_text="м/с")
+
+    # 4.2 Задание тяги двигателя (Н) в зависимости от времени (с)
+
+    #(НЕТ)
+    t_p0 = models.DecimalField(decimal_places=2, max_digits=6)
+    P0 = models.IntegerField()
+
+    t_p1 = models.DecimalField(decimal_places=2, max_digits=6)
+    P1 = models.IntegerField()
+
+    t_p2 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P2 = models.IntegerField(null = True, blank=True)
+
+    t_p3 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P3 = models.IntegerField(null = True, blank=True)
+
+    t_p4 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P4 = models.IntegerField(null = True, blank=True)
+
+    t_p5 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P5 = models.IntegerField(null = True, blank=True)
+
+    t_p6 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P6 = models.IntegerField(null = True, blank=True)
+
+    t_p7 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P7 = models.IntegerField(null = True, blank=True)
+
+    t_p8 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P8 = models.IntegerField(null = True, blank=True)
+
+    t_p9 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P9 = models.IntegerField(null = True, blank=True)
+
+    t_p10 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P10 = models.IntegerField(null = True, blank=True)
+
+    t_p11 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P11 = models.IntegerField(null = True, blank=True)
+
+    t_p12 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P12 = models.IntegerField(null = True, blank=True)
+
+    t_p13 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
+    P13 = models.IntegerField(null = True, blank=True)
+    
+    # 4.3 Закрепление контейнера
+
+    #(НЕТ)
+    # 4.3.1.1 Расстояние от нижнего края ракеты до первой (верхней) точки закрепления, м
+    dl_1 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
+
+    #(НЕТ)
+    # 4.3.1.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
+    nap_zak_1 = models.PositiveSmallIntegerField()
+
+    #(НЕТ)
+    # 4.3.1.3 Жёсткость опоры, Н/м
+    zhestkost_opor_1 = models.IntegerField(null = True, blank=True)
+
+    #(НЕТ)
+    # 4.3.2.1 Расстояние от нижнего края ракеты до второй точки закрепления, м
+    dl_2 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
+
+    #(НЕТ)
+    # 4.3.2.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
+    nap_zak_2 = models.PositiveSmallIntegerField()
+
+    #(НЕТ)
+    # 4.3.2.3 Жёсткость опоры, Н/м
+    zhestkost_opor_2 = models.IntegerField(null = True, blank=True)
+
+    #(НЕТ)
+    # 4.3.3.1 Расстояние от нижнего края ракеты до третьей точки закрепления, м
+    dl_3 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
+
+    #(НЕТ)
+    # 4.3.3.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
+    nap_zak_3 = models.PositiveSmallIntegerField()
+
+    #(НЕТ)
+    # 4.3.3.3 Жёсткость опоры, Н/м
+    zhestkost_opor_3 = models.IntegerField(null = True, blank=True)
     
     
 

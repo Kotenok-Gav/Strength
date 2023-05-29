@@ -8,12 +8,63 @@ function Forms() {
   const [text, setText] = useState();
   const [start_rocket, setStart_rocket] = useState();
   const [t, sett] = useState();
+
   const [d0, setd0] = useState();
   const [tol_R, settol_R] = useState();
   const [L, setL] = useState();
   const [d0_Kon, setd0_Kon] = useState();
   const [tol_Kon, settol_Kon] = useState();
   const [L_Kon, setL_Kon] = useState();
+
+  const [kolichestvo_amort, setkolichestvo_amort] = useState();
+  const [zhestkost_amort, setzhestkost_amort] = useState();
+  const [X1, setX1] = useState();
+  const [X2, setX2] = useState();
+  const [X3, setX3] = useState();
+  const [X4, setX4] = useState();
+  const [X5, setX5] = useState();
+
+  const [V_sredy, setV_sredy] = useState();
+  const [t_p0 , sett_p0] = useState();
+  const [P0 , setP0] = useState();
+  const [t_p1 , sett_p1] = useState();
+  const [P1 , setP1] = useState();
+  const [t_p2 , sett_p2] = useState();
+  const [P2 , setP2] = useState();
+  const [t_p3 , sett_p3] = useState();
+  const [P3 , setP3] = useState();
+  const [t_p4 , sett_p4] = useState();
+  const [P4 , setP4] = useState();
+  const [t_p5 , sett_p5] = useState();
+  const [P5 , setP5] = useState();
+  const [t_p6 , sett_p6] = useState();
+  const [P6 , setP6] = useState();
+  const [t_p7 , sett_p7] = useState();
+  const [P7 , setP7] = useState();
+  const [t_p8 , sett_p8] = useState();
+  const [P8 , setP8] = useState();
+  const [t_p9 , sett_p9] = useState();
+  const [P9 , setP9] = useState();
+  const [t_p10 , sett_p10] = useState();
+  const [P10 , setP10] = useState();
+  const [t_p11 , sett_p11] = useState();
+  const [P11 , setP11] = useState();
+  const [t_p12 , sett_p12] = useState();
+  const [P12 , setP12] = useState();
+  const [t_p13 , sett_p13] = useState();
+  const [P13 , setP13] = useState();
+
+  const [dl_1 , setdl_1] = useState();
+  const [nap_zak_1 , setnap_zak_1] = useState();
+  const [zhestkost_opor_1 , setzhestkost_opor_1] = useState();
+
+  const [dl_2 , setdl_2] = useState();
+  const [nap_zak_2 , setnap_zak_2] = useState();
+  const [zhestkost_opor_2 , setzhestkost_opor_2] = useState();
+
+  const [dl_3 , setdl_3] = useState();
+  const [nap_zak_3 , setnap_zak_3] = useState();
+  const [zhestkost_opor_3 , setzhestkost_opor_3] = useState();
 
   const addBdfHandler = () => {
     const postBdf = async () => {
@@ -26,7 +77,53 @@ function Forms() {
         L:L,
         d0_Kon:d0_Kon,
         tol_Kon:tol_Kon,
-        L_Kon:L_Kon
+        L_Kon:L_Kon,
+        kolichestvo_amort:kolichestvo_amort,
+        zhestkost_amort:zhestkost_amort,
+        X1:X1,
+        X2:X2,
+        X3:X3,
+        X4:X4,
+        X5:X5,
+
+        V_sredy:V_sredy,
+        t_p0:t_p0,
+        P0:P0,
+        t_p1:t_p1,
+        P1:P1,
+        t_p2:t_p2,
+        P2:P2,
+        t_p3:t_p3,
+        P3:P3,
+        t_p4:t_p4,
+        P4:P4,
+        t_p5:t_p5,
+        P5:P5,
+        t_p6:t_p6,
+        P6:P6,
+        t_p7:t_p7,
+        P7:P7,
+        t_p8:t_p8,
+        P8:P8,
+        t_p9:t_p9,
+        P9:P9,
+        t_p10:t_p10,
+        P10:P10,
+        t_p11:t_p11,
+        P11:P11,
+        t_p12:t_p12,
+        P12:P12,
+        t_p13:t_p13,
+        P13:P13,
+        dl_1:dl_1,
+        nap_zak_1:nap_zak_1,
+        zhestkost_opor_1:zhestkost_opor_1,
+        dl_2:dl_2,
+        nap_zak_2:nap_zak_2,
+        zhestkost_opor_2:zhestkost_opor_2,
+        dl_3:dl_3,
+        nap_zak_3:nap_zak_3,
+        zhestkost_opor_3:zhestkost_opor_3
       };
       const { data } = await axios.post(
         "http://127.0.0.1:8000/bdf/",
@@ -36,12 +133,61 @@ function Forms() {
       setText("");
       setStart_rocket("");
       sett("");
+
       setd0("");
       settol_R("");
       setL("");
       setd0_Kon("");
       settol_Kon("");
       setL_Kon("");
+
+      setkolichestvo_amort("");
+      setzhestkost_amort("");
+      setX1("");
+      setX2("");
+      setX3("");
+      setX4("");
+      setX5("");
+
+      setV_sredy("");
+      sett_p0("");
+      setP0("");
+      sett_p1("");
+      setP1("");
+      sett_p2("");
+      setP2("");
+      sett_p3("");
+      setP3("");
+      sett_p4("");
+      setP4("");
+      sett_p5("");
+      setP5("");
+      sett_p6("");
+      setP6("");
+      sett_p7("");
+      setP7("");
+      sett_p8("");
+      setP8("");
+      sett_p9("");
+      setP9("");
+      sett_p10("");
+      setP10("");
+      sett_p11("");
+      setP11("");
+      sett_p12("");
+      setP12("");
+      sett_p13("");
+      setP13("");
+
+      setdl_1("");
+      setnap_zak_1("");
+      setzhestkost_opor_1("");
+      setdl_2("");
+      setnap_zak_2("");
+      setzhestkost_opor_2("");
+      setdl_3("");
+      setnap_zak_3("");
+      setzhestkost_opor_3("");
     };
     postBdf();
   };
@@ -109,6 +255,10 @@ function Forms() {
           <br></br>
           <br></br>
           <br></br>
+          <br></br>
+          <br></br>
+
+
 
 
           <p className="pb-3 pl-5 text-2xl">2  Геометрические характеристики</p>
@@ -202,6 +352,544 @@ function Forms() {
           </div>
 
           <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+
+
+
+
+          <p className="pb-3 pl-5 text-2xl">3  Геометрические характеристики</p>
+          {/* ------------------------------------------------------------------ */}
+          {/* 3.1 */}
+          <p className="pb-3 pl-5 text-xl">3.1 Количество опорно-ведущих поясов (ОВП)</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={kolichestvo_amort}
+              onChange={e => setkolichestvo_amort(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1"
+            />
+            <Tool text="Введите число от 1 до 5"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.2 */}
+          <p className="pb-3 pl-5 text-xl">3.2 Жесткость ОВП</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={zhestkost_amort}
+              onChange={e => setzhestkost_amort(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="567.4"
+            />
+            <Tool text="МН/м (с точностью до десятых)"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.3.1 */}
+          <p className="pb-3 pl-5 text-xl">3.3.1 Расстояние: от нижнего края ракеты до верхнего (первого) пояса амортизации</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X1}
+              onChange={e => setX1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="10.5"
+            />
+            <Tool text="в м с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.3.2 */}
+          <p className="pb-3 pl-5 text-xl">3.3.2 Расстояние: от нижнего края ракеты до второго пояса амортизации</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X2}
+              onChange={e => setX2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="8.4"
+            />
+            <Tool text="в м с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.3.3 */}
+          <p className="pb-3 pl-5 text-xl">3.3.3 Расстояние: от нижнего края ракеты до третьего пояса амортизации</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X3}
+              onChange={e => setX3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="6.9"
+            />
+            <Tool text="в м с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.3.4 */}
+          <p className="pb-3 pl-5 text-xl">3.3.4 Расстояние: от нижнего края ракеты до четвертого пояса амортизации</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X4}
+              onChange={e => setX4(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="5.1"
+            />
+            <Tool text="в м с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 3.3.5 */}
+          <p className="pb-3 pl-5 text-xl">3.3.5 Расстояние: от нижнего края ракеты до пятого пояса амортизации</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X5}
+              onChange={e => setX5(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.7"
+            />
+            <Tool text="в м с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+
+
+
+
+          <p className="pb-3 pl-5 text-2xl">4  Граничные и начальные условия</p>
+          {/* ------------------------------------------------------------------ */}
+          {/* 4.1 */}
+          <p className="pb-3 pl-5 text-xl">4.1 Скорость бокового набегающего потока</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={V_sredy}
+              onChange={e => setV_sredy(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="32.4"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 4.2 */}
+          <p className="pb-3 pl-5 text-xl">4.2 Задание тяги двигателя (Н) в зависимости от времени (с)</p>
+          <p className="pb-3 pl-5 text-xl">Время нулевой точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p0}
+              onChange={e => sett_p0(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга нулевой точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P0}
+              onChange={e => setP0(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 1 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p1}
+              onChange={e => sett_p1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.11"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 1 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P1}
+              onChange={e => setP1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3676743"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 2 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p2}
+              onChange={e => sett_p2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.25"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 2 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P2}
+              onChange={e => setP2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="6120857"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 3 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p3}
+              onChange={e => sett_p3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.5"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 3 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P3}
+              onChange={e => setP3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="9001571"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 4 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p4}
+              onChange={e => sett_p4(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.68"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 4 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P4}
+              onChange={e => setP4(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="10460429"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 5 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p5}
+              onChange={e => sett_p5(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.86"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 5 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P5}
+              onChange={e => setP5(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="9598857"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 6 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p6}
+              onChange={e => sett_p6(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1.00"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 6 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P6}
+              onChange={e => setP6(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="10761714"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 7 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p7}
+              onChange={e => sett_p7(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1.34"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 7 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P7}
+              onChange={e => setP7(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="11697286"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 8 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p8}
+              onChange={e => sett_p8(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1.97"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 8 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P8}
+              onChange={e => setP8(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="11401286"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 9 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p9}
+              onChange={e => sett_p9(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="2.42"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 9 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P9}
+              onChange={e => setP9(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="10804000"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 10 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p10}
+              onChange={e => sett_p10(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.03"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 10 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P10}
+              onChange={e => setP10(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="9313429"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 11 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p11}
+              onChange={e => sett_p11(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.46"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 11 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P11}
+              onChange={e => setP11(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="8055429"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 12 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p12}
+              onChange={e => sett_p12(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.68"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 12 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P12}
+              onChange={e => setP12(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="7178000"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Время 13 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={t_p13}
+              onChange={e => sett_p13(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.80"
+            />
+            <Tool text="м/с"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">Тяга 13 точки</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={P13}
+              onChange={e => setP13(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0"
+            />
+            <Tool text="Н"></Tool>
+          </div>
+
+          <br></br>
+
+
 
 
 
@@ -247,6 +935,13 @@ function Forms() {
                 <p>{bdf.d0_Kon}</p>
                 <p>{bdf.tol_Kon}</p>
                 <p>{bdf.L_Kon}</p>
+                <p>{bdf.kolichestvo_amort}</p>
+                <p>{bdf.zhestkost_amort}</p>
+                <p>{bdf.X1}</p>
+                <p>{bdf.X2}</p>
+                <p>{bdf.X3}</p>
+                <p>{bdf.X4}</p>
+                <p>{bdf.X5}</p>
               </div>
             ))}
           </div>
