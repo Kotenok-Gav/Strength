@@ -889,6 +889,134 @@ function Forms() {
 
           <br></br>
 
+          {/* 4.3 */}
+          <p className="pb-3 pl-5 text-xl">4.3 Закрепление контейнера</p>
+          <p className="pb-3 pl-5 text-xl">4.3.1.1 Расстояние от нижнего края ракеты до первой (верхней) точки закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={dl_1}
+              onChange={e => setdl_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="0.0"
+            />
+            <Tool text="м"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.1.2 Направление закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={nap_zak_1}
+              onChange={e => setnap_zak_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1"
+            />
+            <Tool text="1 – вертикальное 2 – горизонтальное"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.1.3 Жёсткость опоры</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={zhestkost_opor_1}
+              onChange={e => setzhestkost_opor_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="9 000 000 000"
+            />
+            <Tool text="Н/м"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.2.1 Расстояние от нижнего края ракеты до второй точки закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={dl_2}
+              onChange={e => setdl_2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="4.5"
+            />
+            <Tool text="м"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.2.2 Направление закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={nap_zak_2}
+              onChange={e => setnap_zak_2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="2"
+            />
+            <Tool text="1 – вертикальное 2 – горизонтальное"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.2.3 Жёсткость опоры</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={zhestkost_opor_2}
+              onChange={e => setzhestkost_opor_2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="2 000 000 000"
+            />
+            <Tool text="Н/м"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.3.1 Расстояние от нижнего края ракеты до третьей точки закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={dl_3}
+              onChange={e => setdl_3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="8.2"
+            />
+            <Tool text="м"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.3.2 Направление закрепления</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={nap_zak_3}
+              onChange={e => setnap_zak_3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="2"
+            />
+            <Tool text="1 – вертикальное 2 – горизонтальное"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">4.3.3.3 Жёсткость опоры</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={zhestkost_opor_3}
+              onChange={e => setzhestkost_opor_3(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="7 000 000 000"
+            />
+            <Tool text="Н/м"></Tool>
+          </div>
+
+          <br></br>
+
 
 
 

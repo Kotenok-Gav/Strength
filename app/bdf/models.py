@@ -127,7 +127,7 @@ class Rockets_bdf(models.Model):
 
     #(НЕТ)
     # 4.3.1.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_1 = models.PositiveSmallIntegerField()
+    nap_zak_1 = models.PositiveSmallIntegerField(null = True, blank=True)
 
     #(НЕТ)
     # 4.3.1.3 Жёсткость опоры, Н/м
@@ -139,7 +139,7 @@ class Rockets_bdf(models.Model):
 
     #(НЕТ)
     # 4.3.2.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_2 = models.PositiveSmallIntegerField()
+    nap_zak_2 = models.PositiveSmallIntegerField(null = True, blank=True)
 
     #(НЕТ)
     # 4.3.2.3 Жёсткость опоры, Н/м
@@ -151,11 +151,76 @@ class Rockets_bdf(models.Model):
 
     #(НЕТ)
     # 4.3.3.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_3 = models.PositiveSmallIntegerField()
+    nap_zak_3 = models.PositiveSmallIntegerField(null = True, blank=True)
 
     #(НЕТ)
     # 4.3.3.3 Жёсткость опоры, Н/м
     zhestkost_opor_3 = models.IntegerField(null = True, blank=True)
+
+
+    #------------------------------------------------------------------------
+
+    # 5 Распределение масс конструкции
+    # 5.1 Стартовая масса ракеты:  кг, с точностью до десятых
+    m = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.2 Масса ГЧ:  кг
+    m_gch = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.3 Расстояние от нижнего края ракеты до точки приложения массы ГЧ:  м, с точностью до десятых
+    X_gch = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.4 Масса СУ ракеты:  кг
+    m_cy = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.5 Расстояние от нижнего края ракеты до точки приложения массы СУ:  м, с точностью до десятых
+    X_cy = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.6 Масса ДУ 1 ступени:  кг
+    m_dy_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.7 Расстояние от нижнего края ракеты до точки приложения массы ДУ 1 ступени:  м, с точностью до десятых
+    X_dy_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.8 Масса окислителя 1 ступени:  кг
+    mo_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.9 Длина бака окислителя 1 ступени:  м, с точностью до десятых
+    Lo_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.10 Расстояние от нижнего края ракеты до нижнего днища бака окислителя 1 ступени:  м, с точностью до десятых
+    Xo_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.11 Масса горючего 1 ступени:  кг
+    mg_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.12 Длина бака горючего 1 ступени:  м, с точностью до десятых
+    Lg_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 5.13 Расстояние от нижнего края ракеты до нижнего днища бака горючего 1 ступени:  м, с точностью до десятых
+    Xg_1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+
+    #------------------------------------------------------------------------
+
+    # 6 Свойства конструкционных материалов
+    # 6.1 Ракета
+    # 6.1.1 Модуль Юнга (упругости): МПа, с точностью до десятых
+    modul_unga1 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 6.1.2 Коэффициент Пуассона:  с точностью до сотых
+    koeff_puass1 = models.DecimalField(decimal_places=2, max_digits=6)
+
+    # 6.2 Контейнер
+    # 6.2.1 Модуль Юнга (упругости): МПа, с точностью до десятых
+    modul_unga2 = models.DecimalField(decimal_places=1, max_digits=12)
+
+    # 6.2.2 Коэффициент Пуассона:  с точностью до сотых
+    koeff_puass2 = models.DecimalField(decimal_places=2, max_digits=6)
+
+    # 6.2.3 Плотность:  ,кг/м3 точностью до целых
+    plotnost2 = models.IntegerField()
+
     
     
 
