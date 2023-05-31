@@ -289,6 +289,8 @@ function Forms() {
         <div className="flex flex-col w-full p-10">
           <h1 className="text-3xl text-center pb-5">BDF файл</h1>
 
+{/* 1 ------------------------------------------------------------------ */}
+
           <p className="pb-3 pl-5 text-2xl">1  Общие данные</p>
           {/* ------------------------------------------------------------------ */}
           {/* 1.1 */}
@@ -342,7 +344,7 @@ function Forms() {
           <br></br>
 
 
-
+{/* 2 ------------------------------------------------------------------ */}
 
           <p className="pb-3 pl-5 text-2xl">2  Геометрические характеристики</p>
           {/* ------------------------------------------------------------------ */}
@@ -442,7 +444,7 @@ function Forms() {
           <br></br>
 
 
-
+{/* 3 ------------------------------------------------------------------ */}
 
 
           <p className="pb-3 pl-5 text-2xl">3  Геометрические характеристики</p>
@@ -558,7 +560,7 @@ function Forms() {
           <br></br>
 
 
-
+{/* 4 ------------------------------------------------------------------ */}
 
 
           <p className="pb-3 pl-5 text-2xl">4  Граничные и начальные условия</p>
@@ -1099,6 +1101,200 @@ function Forms() {
           </div>
 
           <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+{/* 5 ------------------------------------------------------------------ */}
+
+
+          <p className="pb-3 pl-5 text-2xl">5 Распределение масс конструкции</p>
+          {/* ------------------------------------------------------------------ */}
+          {/* 5.1 */}
+          <p className="pb-3 pl-5 text-xl">5.1 Стартовая масса ракеты</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={m}
+              onChange={e => setm(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="120 000.6"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.2 Масса ГЧ</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={m_gch}
+              onChange={e => setm_gch(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="20 000.6"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.3 Расстояние от нижнего края ракеты до точки приложения массы ГЧ</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X_gch}
+              onChange={e => setX_gch(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="9.6"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.4 Масса СУ ракеты</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={m_cy}
+              onChange={e => setm_cy(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="17 000.6"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.5 Расстояние от нижнего края ракеты до точки приложения массы СУ</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X_cy}
+              onChange={e => setX_cy(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="8.9"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.6 Масса ДУ 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={m_dy_1}
+              onChange={e => setm_dy_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="23 000.2"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.7 Расстояние от нижнего края ракеты до точки приложения массы ДУ 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={X_dy_1}
+              onChange={e => setX_dy_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="1.1"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.8 Масса окислителя 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={mo_1}
+              onChange={e => setmo_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="24 000.5"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.9 Длина бака окислителя 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={Lo_1}
+              onChange={e => setLo_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.2"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.10 Расстояние от нижнего края ракеты до нижнего днища бака окислителя 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={Xo_1}
+              onChange={e => setXo_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="5.2"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.11 Масса горючего 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={mg_1}
+              onChange={e => setmg_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="25 000.9"
+            />
+            <Tool text="кг, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.12 Длина бака горючего 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={Lg_1}
+              onChange={e => setLg_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="3.7"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">5.13 Расстояние от нижнего края ракеты до нижнего днища бака горючего 1 ступени</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={Xg_1}
+              onChange={e => setXg_1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="2.0"
+            />
+            <Tool text="м, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
 
 
 
