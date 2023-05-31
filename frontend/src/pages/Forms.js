@@ -1433,6 +1433,69 @@ function Forms() {
                 <p>{bdf.X3}</p>
                 <p>{bdf.X4}</p>
                 <p>{bdf.X5}</p>
+
+                <p>{bdf.V_sredy}</p>
+                <p>{bdf.t_p0}</p>
+                <p>{bdf.P0}</p>
+                <p>{bdf.t_p1}</p>
+                <p>{bdf.P1}</p>
+                <p>{bdf.t_p2}</p>
+                <p>{bdf.P2}</p>
+                <p>{bdf.t_p3}</p>
+                <p>{bdf.P3}</p>
+                <p>{bdf.t_p4}</p>
+                <p>{bdf.P4}</p>
+                <p>{bdf.t_p5}</p>
+                <p>{bdf.P5}</p>
+                <p>{bdf.t_p6}</p>
+                <p>{bdf.P6}</p>
+                <p>{bdf.t_p7}</p>
+                <p>{bdf.P7}</p>
+                <p>{bdf.t_p8}</p>
+                <p>{bdf.P8}</p>
+                <p>{bdf.t_p9}</p>
+                <p>{bdf.P9}</p>
+                <p>{bdf.t_p10}</p>
+                <p>{bdf.P10}</p>
+                <p>{bdf.t_p11}</p>
+                <p>{bdf.P11}</p>
+                <p>{bdf.t_p12}</p>
+                <p>{bdf.P12}</p>
+                <p>{bdf.t_p13}</p>
+                <p>{bdf.P13}</p>
+
+                <p>{bdf.dl_1}</p>
+                <p>{bdf.nap_zak_1}</p>
+                <p>{bdf.zhestkost_opor_1}</p>
+
+                <p>{bdf.dl_2}</p>
+                <p>{bdf.nap_zak_2}</p>
+                <p>{bdf.zhestkost_opor_2}</p>
+
+                <p>{bdf.dl_3}</p>
+                <p>{bdf.nap_zak_3}</p>
+                <p>{bdf.zhestkost_opor_3}</p>
+
+                <p>{bdf.m}</p>
+                <p>{bdf.m_gch}</p>
+                <p>{bdf.X_gch}</p>
+                <p>{bdf.m_cy}</p>
+                <p>{bdf.X_cy}</p>
+                <p>{bdf.m_dy_1}</p>
+                <p>{bdf.X_dy_1}</p>
+                <p>{bdf.mo_1}</p>
+                <p>{bdf.Lo_1}</p>
+                <p>{bdf.Xo_1}</p>
+                <p>{bdf.mg_1}</p>
+                <p>{bdf.Lg_1}</p>
+                <p>{bdf.Xg_1}</p>
+
+                <p>{bdf.modul_unga1}</p>
+                <p>{bdf.koeff_puass1}</p>
+                <p>{bdf.modul_unga2}</p>
+                <p>{bdf.koeff_puass2}</p>
+                <p>{bdf.plotnost2}</p>
+
               </div>
             ))}
           </div>
