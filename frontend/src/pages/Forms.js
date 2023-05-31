@@ -1294,6 +1294,90 @@ function Forms() {
           </div>
 
           <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+          <br></br>
+
+{/* 6 ------------------------------------------------------------------ */}
+
+
+          <p className="pb-3 pl-5 text-2xl">6 Свойства конструкционных материалов</p>
+          <p className="pb-3 pl-5 text-2xl">6.1 Ракета</p>
+          {/* ------------------------------------------------------------------ */}
+          {/* 6.1 */}
+          <p className="pb-3 pl-5 text-xl">6.1.1 Модуль Юнга (упругости)</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={modul_unga1}
+              onChange={e => setmodul_unga1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="234.5"
+            />
+            <Tool text="МПа, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">6.1.2 Коэффициент Пуассона</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={koeff_puass1}
+              onChange={e => setkoeff_puass1(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="7.45"
+            />
+            <Tool text="с точностью до сотых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-2xl">6.2 Контейнер</p>
+          <p className="pb-3 pl-5 text-xl">6.2.1 Модуль Юнга (упругости)</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={modul_unga2}
+              onChange={e => setmodul_unga2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="682.4"
+            />
+            <Tool text="МПа, с точностью до десятых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">6.2.2 Коэффициент Пуассона</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={koeff_puass2}
+              onChange={e => setkoeff_puass2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="6.28"
+            />
+            <Tool text="с точностью до сотых"></Tool>
+          </div>
+
+          <br></br>
+
+          <p className="pb-3 pl-5 text-xl">6.2.3 Плотность</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={plotnost2}
+              onChange={e => setplotnost2(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="349"
+            />
+            <Tool text="кг/м3 точностью до целых"></Tool>
+          </div>
+
+
+
 
 
 
