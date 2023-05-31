@@ -5,10 +5,12 @@ import Tool from "../components/input/Tooltip";
 function Forms() {
   const [bdf, setBdf] = useState([]);
 
+// 1 ------------ 
   const [text, setText] = useState();
   const [start_rocket, setStart_rocket] = useState();
   const [t, sett] = useState();
 
+// 2 ------------ 
   const [d0, setd0] = useState();
   const [tol_R, settol_R] = useState();
   const [L, setL] = useState();
@@ -16,6 +18,7 @@ function Forms() {
   const [tol_Kon, settol_Kon] = useState();
   const [L_Kon, setL_Kon] = useState();
 
+// 3 ------------ 
   const [kolichestvo_amort, setkolichestvo_amort] = useState();
   const [zhestkost_amort, setzhestkost_amort] = useState();
   const [X1, setX1] = useState();
@@ -24,6 +27,7 @@ function Forms() {
   const [X4, setX4] = useState();
   const [X5, setX5] = useState();
 
+// 4 ------------ 
   const [V_sredy, setV_sredy] = useState();
   const [t_p0 , sett_p0] = useState();
   const [P0 , setP0] = useState();
@@ -66,18 +70,46 @@ function Forms() {
   const [nap_zak_3 , setnap_zak_3] = useState();
   const [zhestkost_opor_3 , setzhestkost_opor_3] = useState();
 
+// 5 ------------ 
+  const [m , setm] = useState();
+  const [m_gch , setm_gch] = useState();
+  const [X_gch , setX_gch] = useState();
+  const [m_cy , setm_cy] = useState();
+  const [X_cy , setX_cy] = useState();
+  const [m_dy_1 , setm_dy_1] = useState();
+  const [X_dy_1 , setX_dy_1] = useState();
+  const [mo_1 , setmo_1] = useState();
+  const [Lo_1 , setLo_1] = useState();
+  const [Xo_1 , setXo_1] = useState();
+  const [mg_1 , setmg_1] = useState();
+  const [Lg_1 , setLg_1] = useState();
+  const [Xg_1 , setXg_1] = useState();
+
+// 6 ------------ 
+  const [modul_unga1 , setmodul_unga1] = useState();
+  const [koeff_puass1 , setkoeff_puass1] = useState();
+  const [modul_unga2 , setmodul_unga2] = useState();
+  const [koeff_puass2 , setkoeff_puass2] = useState();
+  const [plotnost2 , setplotnost2] = useState();
+
   const addBdfHandler = () => {
     const postBdf = async () => {
       const postBdfdata = {
+
+// 1 ------------ 
         text: text,
         start_rocket: start_rocket,
         t: t,
+
+// 2 ------------ 
         d0:d0,
         tol_R:tol_R,
         L:L,
         d0_Kon:d0_Kon,
         tol_Kon:tol_Kon,
         L_Kon:L_Kon,
+
+// 3 ------------ 
         kolichestvo_amort:kolichestvo_amort,
         zhestkost_amort:zhestkost_amort,
         X1:X1,
@@ -86,6 +118,7 @@ function Forms() {
         X4:X4,
         X5:X5,
 
+// 4 ------------ 
         V_sredy:V_sredy,
         t_p0:t_p0,
         P0:P0,
@@ -123,17 +156,43 @@ function Forms() {
         zhestkost_opor_2:zhestkost_opor_2,
         dl_3:dl_3,
         nap_zak_3:nap_zak_3,
-        zhestkost_opor_3:zhestkost_opor_3
+        zhestkost_opor_3:zhestkost_opor_3,
+
+// 5 ------------
+        m:m,
+        m_gch:m_gch,
+        X_gch:X_gch,
+        m_cy:m_cy,
+        X_cy:X_cy,
+        m_dy_1:m_dy_1,
+        X_dy_1:X_dy_1,
+        mo_1:mo_1,
+        Lo_1:Lo_1,
+        Xo_1:Xo_1,
+        mg_1:mg_1,
+        Lg_1:Lg_1,
+        Xg_1:Xg_1,
+
+// 6 ------------ 
+        modul_unga1:modul_unga1,
+        koeff_puass1:koeff_puass1,
+        modul_unga2:modul_unga2,
+        koeff_puass2:koeff_puass2,
+        plotnost2:plotnost2,
+
       };
       const { data } = await axios.post(
         "http://127.0.0.1:8000/bdf/",
         postBdfdata
       );
       setBdf([...bdf, data]);
+
+// 1 ------------ 
       setText("");
       setStart_rocket("");
       sett("");
 
+// 2 ------------ 
       setd0("");
       settol_R("");
       setL("");
@@ -141,6 +200,7 @@ function Forms() {
       settol_Kon("");
       setL_Kon("");
 
+// 3 ------------ 
       setkolichestvo_amort("");
       setzhestkost_amort("");
       setX1("");
@@ -149,6 +209,7 @@ function Forms() {
       setX4("");
       setX5("");
 
+// 4 ------------ 
       setV_sredy("");
       sett_p0("");
       setP0("");
@@ -188,6 +249,28 @@ function Forms() {
       setdl_3("");
       setnap_zak_3("");
       setzhestkost_opor_3("");
+
+// 5 ------------
+      setm("");
+      setm_gch("");
+      setX_gch("");
+      setm_cy("");
+      setX_cy("");
+      setm_dy_1("");
+      setX_dy_1("");
+      setmo_1("");
+      setLo_1("");
+      setXo_1("");
+      setmg_1("");
+      setLg_1("");
+      setXg_1("");
+
+// 6 ------------ 
+      setmodul_unga1("");
+      setkoeff_puass1("");
+      setmodul_unga2("");
+      setkoeff_puass2("");
+      setplotnost2(""); 
     };
     postBdf();
   };

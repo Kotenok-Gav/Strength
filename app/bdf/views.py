@@ -21,17 +21,21 @@ def bdf_list(request):
     
     if request.method == "POST":
 
+# 1 ------------   
         text = request.data.get("text")
         start_rocket = request.data.get("start_rocket")
         t = request.data.get("t")
-        d0 = request.data.get("d0")
 
+# 2 ------------      
+        d0 = request.data.get("d0")
         tol_R = request.data.get("tol_R")
         L = request.data.get("L")
         d0_Kon = request.data.get("d0_Kon")
         tol_Kon = request.data.get("tol_Kon")
         L_Kon = request.data.get("L_Kon")
 
+
+# 3 ------------
         kolichestvo_amort = request.data.get("kolichestvo_amort")
         zhestkost_amort = request.data.get("zhestkost_amort")
         X1 = request.data.get("X1")
@@ -40,6 +44,7 @@ def bdf_list(request):
         X4 = request.data.get("X4")
         X5 = request.data.get("X5")
 
+# 4 ------------
         V_sredy = request.data.get("V_sredy")
         t_p0 = request.data.get("t_p0")
         P0 = request.data.get("P0")
@@ -82,7 +87,93 @@ def bdf_list(request):
         nap_zak_3 = request.data.get("nap_zak_3")
         zhestkost_opor_3 = request.data.get("zhestkost_opor_3")
 
-        bd = Rockets_bdf.objects.create(text=text, start_rocket=start_rocket, t=t, d0=d0, tol_R=tol_R, L=L, d0_Kon=d0_Kon, tol_Kon=tol_Kon, L_Kon=L_Kon, kolichestvo_amort=kolichestvo_amort, zhestkost_amort=zhestkost_amort, X1=X1, X2=X2, X3=X3, X4=X4, X5=X5,V_sredy=V_sredy, t_p0=t_p0, P0=P0, t_p1=t_p1, P1=P1, t_p2=t_p2, P2=P2, t_p3=t_p3, P3=P3, t_p4=t_p4, P4=P4, t_p5=t_p5, P5=P5, t_p6=t_p6, P6=P6, t_p7=t_p7, P7=P7, t_p8=t_p8, P8=P8, t_p9=t_p9, P9=P9, t_p10=t_p10, P10=P10, t_p11=t_p11, P11=P11, t_p12=t_p12, P12=P12, t_p13=t_p13, P13=P13, dl_1=dl_1, nap_zak_1=nap_zak_1, zhestkost_opor_1=zhestkost_opor_1, dl_2=dl_2, nap_zak_2=nap_zak_2, zhestkost_opor_2=zhestkost_opor_2, dl_3=dl_3, nap_zak_3=nap_zak_3, zhestkost_opor_3=zhestkost_opor_3)
+# 5 ------------
+        m = request.data.get("m")
+        m_gch = request.data.get("m_gch")
+        X_gch = request.data.get("X_gch")
+        m_cy = request.data.get("m_cy")
+        X_cy = request.data.get("X_cy")
+        m_dy_1 = request.data.get("m_dy_1")
+        X_dy_1 = request.data.get("X_dy_1")
+        mo_1 = request.data.get("mo_1")
+        Lo_1 = request.data.get("Lo_1")
+        Xo_1 = request.data.get("Xo_1")
+        mg_1 = request.data.get("mg_1")
+        Lg_1 = request.data.get("Lg_1")
+        Xg_1 = request.data.get("Xg_1")
+
+# 6 ------------
+        modul_unga1 = request.data.get("modul_unga1")
+        koeff_puass1 = request.data.get("koeff_puass1")
+        modul_unga2 = request.data.get("modul_unga2")
+        koeff_puass2 = request.data.get("koeff_puass2")
+        plotnost2 = request.data.get("plotnost2")
+
+        bd = Rockets_bdf.objects.create(
+        # 1 ------------ 
+            text=text,
+            start_rocket=start_rocket,
+            t=t,
+        # 2 ------------  
+            d0=d0,
+            tol_R=tol_R,
+            L=L,
+            d0_Kon=d0_Kon,
+            tol_Kon=tol_Kon,
+            L_Kon=L_Kon,
+        # 3 ------------  
+            kolichestvo_amort=kolichestvo_amort,
+            zhestkost_amort=zhestkost_amort,
+            X1=X1,
+            X2=X2,
+            X3=X3,
+            X4=X4,
+            X5=X5,
+        # 4 ------------ 
+            V_sredy=V_sredy, 
+            t_p0=t_p0, P0=P0, 
+            t_p1=t_p1, P1=P1, 
+            t_p2=t_p2, P2=P2, 
+            t_p3=t_p3, P3=P3, 
+            t_p4=t_p4, P4=P4, 
+            t_p5=t_p5, P5=P5, 
+            t_p6=t_p6, P6=P6, 
+            t_p7=t_p7, P7=P7, 
+            t_p8=t_p8, P8=P8, 
+            t_p9=t_p9, P9=P9, 
+            t_p10=t_p10, P10=P10, 
+            t_p11=t_p11, P11=P11, 
+            t_p12=t_p12, P12=P12, 
+            t_p13=t_p13, P13=P13, 
+            dl_1=dl_1, 
+            nap_zak_1=nap_zak_1, 
+            zhestkost_opor_1=zhestkost_opor_1,
+            dl_2=dl_2, 
+            nap_zak_2=nap_zak_2, 
+            zhestkost_opor_2=zhestkost_opor_2, 
+            dl_3=dl_3, 
+            nap_zak_3=nap_zak_3, 
+            zhestkost_opor_3=zhestkost_opor_3,
+        # 5 ------------ 
+            m=m,
+            m_gch=m_gch,
+            X_gch=X_gch,
+            m_cy=m_cy,
+            X_cy=X_cy,
+            m_dy_1=m_dy_1,
+            X_dy_1=X_dy_1,
+            mo_1=mo_1,
+            Lo_1=Lo_1,
+            Xo_1=Xo_1,
+            mg_1=mg_1,
+            Lg_1=Lg_1,
+            Xg_1=Xg_1,
+        # 6 ------------ 
+            modul_unga1=modul_unga1,
+            koeff_puass1=koeff_puass1,
+            modul_unga2=modul_unga2,
+            koeff_puass2=koeff_puass2,
+            plotnost2=plotnost2,)
         serializer = bdfSerializer(bd)
         return Response(serializer.data, status=HTTP_200_OK)
 
