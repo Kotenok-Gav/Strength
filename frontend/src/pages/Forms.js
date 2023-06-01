@@ -29,6 +29,7 @@ function Forms() {
 
 // 4 ------------ 
   const [V_sredy, setV_sredy] = useState();
+  const [N, setN] = useState();
   const [t_p0 , sett_p0] = useState();
   const [P0 , setP0] = useState();
   const [t_p1 , sett_p1] = useState();
@@ -120,6 +121,7 @@ function Forms() {
 
 // 4 ------------ 
         V_sredy:V_sredy,
+        N:N,
         t_p0:t_p0,
         P0:P0,
         t_p1:t_p1,
@@ -211,6 +213,7 @@ function Forms() {
 
 // 4 ------------ 
       setV_sredy("");
+      setN("");
       sett_p0("");
       setP0("");
       sett_p1("");
@@ -581,7 +584,22 @@ function Forms() {
           <br></br>
 
           {/* 4.2 */}
-          <p className="pb-3 pl-5 text-xl">4.2 Задание тяги двигателя (Н) в зависимости от времени (с)</p>
+          <p className="pb-3 pl-5 text-xl">4.2 Количество узлов ракеты</p>
+          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
+            <input
+              value={N}
+              onChange={e => setN(e.target.value)}
+              type="text"
+              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
+              placeholder="75.8"
+            />
+            <Tool text="(с шагом К = 0.1)"></Tool>
+          </div>
+
+          <br></br>
+
+          {/* 4.3 */}
+          <p className="pb-3 pl-5 text-xl">4.3 Задание тяги двигателя (Н) в зависимости от времени (с)</p>
           <p className="pb-3 pl-5 text-xl">Время нулевой точки</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
@@ -974,9 +992,9 @@ function Forms() {
 
           <br></br>
 
-          {/* 4.3 */}
-          <p className="pb-3 pl-5 text-xl">4.3 Закрепление контейнера</p>
-          <p className="pb-3 pl-5 text-xl">4.3.1.1 Расстояние от нижнего края ракеты до первой (верхней) точки закрепления</p>
+          {/* 4.4 */}
+          <p className="pb-3 pl-5 text-xl">4.4 Закрепление контейнера</p>
+          <p className="pb-3 pl-5 text-xl">4.4.1.1 Расстояние от нижнего края ракеты до первой (верхней) точки закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={dl_1}
@@ -990,7 +1008,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.1.2 Направление закрепления</p>
+          <p className="pb-3 pl-5 text-xl">4.4.1.2 Направление закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={nap_zak_1}
@@ -1004,7 +1022,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.1.3 Жёсткость опоры</p>
+          <p className="pb-3 pl-5 text-xl">4.4.1.3 Жёсткость опоры</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={zhestkost_opor_1}
@@ -1018,7 +1036,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.2.1 Расстояние от нижнего края ракеты до второй точки закрепления</p>
+          <p className="pb-3 pl-5 text-xl">4.4.2.1 Расстояние от нижнего края ракеты до второй точки закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={dl_2}
@@ -1032,7 +1050,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.2.2 Направление закрепления</p>
+          <p className="pb-3 pl-5 text-xl">4.4.2.2 Направление закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={nap_zak_2}
@@ -1046,7 +1064,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.2.3 Жёсткость опоры</p>
+          <p className="pb-3 pl-5 text-xl">4.4.2.3 Жёсткость опоры</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={zhestkost_opor_2}
@@ -1060,7 +1078,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.3.1 Расстояние от нижнего края ракеты до третьей точки закрепления</p>
+          <p className="pb-3 pl-5 text-xl">4.4.3.1 Расстояние от нижнего края ракеты до третьей точки закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={dl_3}
@@ -1074,7 +1092,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.3.2 Направление закрепления</p>
+          <p className="pb-3 pl-5 text-xl">4.4.3.2 Направление закрепления</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={nap_zak_3}
@@ -1088,7 +1106,7 @@ function Forms() {
 
           <br></br>
 
-          <p className="pb-3 pl-5 text-xl">4.3.3.3 Жёсткость опоры</p>
+          <p className="pb-3 pl-5 text-xl">4.4.3.3 Жёсткость опоры</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input
               value={zhestkost_opor_3}
