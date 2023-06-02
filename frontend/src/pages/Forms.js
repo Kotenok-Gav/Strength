@@ -6,7 +6,7 @@ function Forms() {
   const [bdf, setBdf] = useState([]);
 
 // 1 ------------ 
-  const [text, setText] = useState();
+  const [text, setText, ] = useState();
   const [start_rocket, setStart_rocket] = useState();
   const [t, sett] = useState();
 
@@ -92,6 +92,30 @@ function Forms() {
   const [modul_unga2 , setmodul_unga2] = useState();
   const [koeff_puass2 , setkoeff_puass2] = useState();
   const [plotnost2 , setplotnost2] = useState();
+
+
+  const handleDownload = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:8000/download/', {
+        responseType: 'blob', // Указываем, что ожидаем получить blob-объект в ответе
+      });
+  
+      // Создаем ссылку для скачивания файла
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+  
+      // Создаем временную ссылку и автоматически запускаем скачивание
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', '1.txt');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error('Ошибка при скачивании файла:', error);
+    }
+  };
+  
+
 
   const addBdfHandler = () => {
     const postBdf = async () => {
@@ -1399,32 +1423,19 @@ function Forms() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <button
                 onClick={addBdfHandler}
                 className="p-5 rounded-3xl bg-slate-700  hover:bg-sky-700 text-xl mx-60 mt-20">
                 Создать
+          </button>
+
+
+          
+
+          <button
+                onClick={handleDownload}
+                className="p-5 rounded-3xl bg-slate-700  hover:bg-sky-700 text-xl mx-60 mt-20">
+                Скачать
           </button>
 
 
