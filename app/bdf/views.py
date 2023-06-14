@@ -46,7 +46,6 @@ def bdf_list(request):
         X5 = request.data.get("X5")
 # 4 ------------
         V_sredy = request.data.get("V_sredy")
-        N = request.data.get("N")
         t_p0 = request.data.get("t_p0")
         P0 = request.data.get("P0")
         t_p1 = request.data.get("t_p1")
@@ -101,6 +100,11 @@ def bdf_list(request):
         mg_1 = request.data.get("mg_1")
         Lg_1 = request.data.get("Lg_1")
         Xg_1 = request.data.get("Xg_1")
+        a1 = request.data.get("a1")
+        a2 = request.data.get("a2")
+        a3 = request.data.get("a3")
+        a4 = request.data.get("a4")
+        a5 = request.data.get("a5")
 # 6 ------------
         modul_unga1 = request.data.get("modul_unga1")
         koeff_puass1 = request.data.get("koeff_puass1")
@@ -131,7 +135,6 @@ def bdf_list(request):
             X5=Decimal(X5),
             # 4 ------------
             V_sredy=Decimal(V_sredy),
-            N=Decimal(N),
             t_p0=Decimal(t_p0), P0=Decimal(P0),
             t_p1=Decimal(t_p1), P1=Decimal(P1),
             t_p2=Decimal(t_p2), P2=Decimal(P2),
@@ -169,6 +172,11 @@ def bdf_list(request):
             mg_1=Decimal(mg_1),
             Lg_1=Decimal(Lg_1),
             Xg_1=Decimal(Xg_1),
+            a1=Decimal(a1),
+            a2=Decimal(a2),
+            a3=Decimal(a3),
+            a4=Decimal(a4),
+            a5=Decimal(a5),
             # 6 ------------
             modul_unga1=Decimal(modul_unga1),
             koeff_puass1=Decimal(koeff_puass1),
@@ -197,6 +205,9 @@ def bdf_list(request):
             "BEGIN   BULK\nPARAM   G           0.1\nPARAM   W3          1.0\n\nPARAM   POST      0\n")
         file.write("PARAM   PRTMAXIM  YES\n\n")
 
+        N_rocket = L / 0.1 + 1
+        N_konteiner = L_Kon / 0.1 + 1
+
         # Запись GRID с 1 по N-й узел
         u = 0
         k = 0.1
@@ -210,7 +221,7 @@ def bdf_list(request):
         u = 0
         k = 0.1
         d0 = 0
-        while u < float(bd.N):
+        while u < float(bd.L):
             u_1 = 100001 + u
             cox = u * k
             coy = (d0 / 2) + 0.1
@@ -696,6 +707,7 @@ def bdf_list(request):
             file.write("SPC     10      {: <8.1f}23456\n".format(a1 + 100001))
             file.write("SPC     10      {: <8.1f}23456\n".format(a2 + 100001))
 
+
         else:
 
             # Запись GRID узлы скольжения
@@ -788,8 +800,11 @@ def bdf_list(request):
             # Запись SPC опорных узлов контейнера
 
             file.write("\n\n")
-            file.write("SPC     10      {: <8.1f}23456\n".format(a1 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a2 + 100001))
+            file.write("SPC     10      {: <8.1f}23456\n".format(a1 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}23456\n".format(a2 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}23456\n".format(a3 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}23456\n".format(a4 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}23456\n".format(a5 * 10 + 100001))
 
         file.write("\n\n")
 
@@ -914,7 +929,7 @@ def bdf_list(request):
 
         massa_korpusa = bd.m - bd.m_gch - bd.m_cy - bd.m_dy_1 - bd.mo_1 - bd.mg_1
         plotnost1 = massa_korpusa / (((Decimal('3.14') * bd.d0 * bd.d0 / Decimal('4')) - (Decimal(
-            '3.14') * (bd.d0 - Decimal('0.003')) * (bd.d0 - Decimal('0.003')) / Decimal('4'))) * bd.L)
+            '3.14') * (bd.d0 - Decimal('tol_R')) * (bd.d0 - Decimal('tol_R')) / Decimal('4'))) * bd.L)
 
         file.write("MAT1    1       {: <2.1f}+10          {: <8.2f}{: <8.1f}\n".format(
             bd.modul_unga1, bd.koeff_puass1, plotnost1))
@@ -925,10 +940,10 @@ def bdf_list(request):
         # Запись PBARL
 
         file.write(
-            "PBARL   1       1               TUBE2\n        {: <8.2f}0.003".format(bd.d0))
+            "PBARL   1       1               TUBE2\n        {: <8.2f}tol_R".format(bd.d0 / 2))
         file.write("\n")
-        file.write("PBARL   2       2               TUBE2\n        {: <8.2f}0.0175".format(
-            bd.d0 + Decimal('0.2')))
+        file.write("PBARL   2       2               TUBE2\n        {: <8.2f}tol_Kon".format(
+            d0_Kon / 2))
         file.write("\n\n")
 
         # Запись LSEQ для ускорения свободного падения
