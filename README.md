@@ -1,4 +1,6 @@
 
+Инструкция для запуска проекта
+
 #Для Windows
 #Открываем терминал
 git clone https://github.com/Kotenok-Gav/Strength.git                 #Клонируем проект
