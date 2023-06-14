@@ -8,7 +8,7 @@
 
 
 Инструкция для запуска проекта  
-Для Windows  
+На Windows  
 
 git clone https://github.com/Kotenok-Gav/Strength.git                 #Клонируем проект  
 python -m venv venv                                                   #Создаем папку виртуального окружения  
@@ -23,13 +23,13 @@ cd .\app\                                                            #Перех
 python manage.py migrate                                             #Создаем БД  
 python manage.py runserver                                           #Запускаем  Back-end  
 
-#Параллельно запускаем второй терминал  
+Параллельно запускаем второй терминал  
 cd .\frontend\                                                       #Переходим в директорию Frontend  
 npm install                                                          #Устанавливаем зависимости  
 npm start                                                            #Запускаем Frontend  
 --------------------------------------------------------------
 
-#Для Linux  
+На Linux  
 git clone https://github.com/Kotenok-Gav/Strength.git                 #Клонируем проект  
 python3.11 -m venv venv                                               #Создаем папку виртуального окружения  
 source venv/bin/activate                                              #Активируем вирт. окружение  
