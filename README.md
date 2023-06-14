@@ -23,10 +23,11 @@ cd .\app\                                                            #Перех
 python manage.py migrate                                             #Создаем БД  
 python manage.py runserver                                           #Запускаем  Back-end  
 
-Параллельно запускаем второй терминал  
+#Параллельно запускаем второй терминал  
 cd .\frontend\                                                       #Переходим в директорию Frontend  
 npm install                                                          #Устанавливаем зависимости  
 npm start                                                            #Запускаем Frontend  
+
 --------------------------------------------------------------
 
 На Linux  
