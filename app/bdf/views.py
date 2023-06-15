@@ -74,18 +74,6 @@ def bdf_list(request):
         P12 = request.data.get("P12")
         t_p13 = request.data.get("t_p13")
         P13 = request.data.get("P13")
-
-        dl_1 = request.data.get("dl_1")
-        nap_zak_1 = request.data.get("nap_zak_1")
-        zhestkost_opor_1 = request.data.get("zhestkost_opor_1")
-
-        dl_2 = request.data.get("dl_2")
-        nap_zak_2 = request.data.get("nap_zak_2")
-        zhestkost_opor_2 = request.data.get("zhestkost_opor_2")
-
-        dl_3 = request.data.get("dl_3")
-        nap_zak_3 = request.data.get("nap_zak_3")
-        zhestkost_opor_3 = request.data.get("zhestkost_opor_3")
 # 5 ------------
         m = request.data.get("m")
         m_gch = request.data.get("m_gch")
@@ -100,16 +88,22 @@ def bdf_list(request):
         mg_1 = request.data.get("mg_1")
         Lg_1 = request.data.get("Lg_1")
         Xg_1 = request.data.get("Xg_1")
-        a1 = request.data.get("a1")
+
+        L_kon_zakr_1 = request.data.get("L_kon_zakr_1")
         tip_zakr_1 = request.data.get("tip_zakr_1")
-        a2 = request.data.get("a2")
+
+        L_kon_zakr_2 = request.data.get("L_kon_zakr_2")
         tip_zakr_2 = request.data.get("tip_zakr_2")
-        a3 = request.data.get("a3")
+
+        L_kon_zakr_3 = request.data.get("L_kon_zakr_3")
         tip_zakr_3 = request.data.get("tip_zakr_3")
-        a4 = request.data.get("a4")
+        
+        L_kon_zakr_4 = request.data.get("L_kon_zakr_4")
         tip_zakr_4 = request.data.get("tip_zakr_4")
-        a5 = request.data.get("a5")
+
+        L_kon_zakr_5 = request.data.get("L_kon_zakr_5")
         tip_zakr_5 = request.data.get("tip_zakr_5")
+
 # 6 ------------
         modul_unga1 = request.data.get("modul_unga1")
         koeff_puass1 = request.data.get("koeff_puass1")
@@ -154,15 +148,6 @@ def bdf_list(request):
             t_p11=Decimal(t_p11), P11=Decimal(P11),
             t_p12=Decimal(t_p12), P12=Decimal(P12),
             t_p13=Decimal(t_p13), P13=Decimal(P13),
-            dl_1=Decimal(dl_1),
-            nap_zak_1=Decimal(nap_zak_1),
-            zhestkost_opor_1=Decimal(zhestkost_opor_1),
-            dl_2=Decimal(dl_2),
-            nap_zak_2=Decimal(nap_zak_2),
-            zhestkost_opor_2=Decimal(zhestkost_opor_2),
-            dl_3=Decimal(dl_3),
-            nap_zak_3=Decimal(nap_zak_3),
-            zhestkost_opor_3=Decimal(zhestkost_opor_3),
             # 5 ------------
             m=Decimal(m),
             m_gch=Decimal(m_gch),
@@ -177,15 +162,15 @@ def bdf_list(request):
             mg_1=Decimal(mg_1),
             Lg_1=Decimal(Lg_1),
             Xg_1=Decimal(Xg_1),
-            a1=Decimal(a1),
+            L_kon_zakr_1=Decimal(L_kon_zakr_1),
             tip_zakr_1=Decimal(tip_zakr_1),
-            a2=Decimal(a2),
+            L_kon_zakr_2=Decimal(L_kon_zakr_2),
             tip_zakr_2=Decimal(tip_zakr_2),
-            a3=Decimal(a3),
+            L_kon_zakr_3=Decimal(L_kon_zakr_3),
             tip_zakr_3=Decimal(tip_zakr_3),
-            a4=Decimal(a4),
+            L_kon_zakr_4=Decimal(L_kon_zakr_4),
             tip_zakr_4=Decimal(tip_zakr_4),
-            a5=Decimal(a5),
+            L_kon_zakr_5=Decimal(L_kon_zakr_5),
             tip_zakr_5=Decimal(tip_zakr_5),
             
             # 6 ------------
@@ -430,6 +415,20 @@ def bdf_list(request):
             file.write("SPC     10      {: <8d}345\n".format(u))
         file.write("\n\n")
 
+
+
+        # Запись SPC опорных узлов контейнера
+
+        file.write("\n\n")
+        file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(a1 * 10 + 100001))
+        file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(a2 * 10 + 100001))
+        file.write("SPC     10      {: <8.1f}tip_zakr_3\n".format(a3 * 10 + 100001))
+        file.write("SPC     10      {: <8.1f}tip_zakr_4\n".format(a4 * 10 + 100001))
+        file.write("SPC     10      {: <8.1f}tip_zakr_5\n".format(a5 * 10 + 100001))
+
+
+
+
         if (bd.kolichestvo_amort == 2):
             # Запись GRID узлы скольжения
 
@@ -520,11 +519,6 @@ def bdf_list(request):
             file.write(
                 "BCONP   7       8       2               1.0     10      1       3\n")
 
-            # Запись SPC опорных узлов контейнера
-
-            file.write("\n\n")
-            file.write("SPC     10      {: <8.1f}23456\n".format(a1 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a2 + 100001))
 
         elif (bd.kolichestvo_amort == 3):
 
@@ -617,11 +611,6 @@ def bdf_list(request):
             file.write(
                 "BCONP   7       8       2               1.0     10      1       3\n")
 
-            # Запись SPC опорных узлов контейнера
-
-            file.write("\n\n")
-            file.write("SPC     10      {: <8.1f}23456\n".format(a1 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a2 + 100001))
 
         elif (bd.kolichestvo_amort == 4):
 
@@ -712,11 +701,7 @@ def bdf_list(request):
             file.write(
                 "BCONP   7       8       2               1.0     10      1       3\n")
 
-            # Запись SPC опорных узлов контейнера
 
-            file.write("\n\n")
-            file.write("SPC     10      {: <8.1f}23456\n".format(a1 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a2 + 100001))
 
 
         else:
@@ -808,14 +793,10 @@ def bdf_list(request):
             file.write(
                 "BCONP   7       8       2               1.0     10      1       3\n")
 
-            # Запись SPC опорных узлов контейнера
 
-            file.write("\n\n")
-            file.write("SPC     10      {: <8.1f}23456\n".format(a1 * 10 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a2 * 10 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a3 * 10 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a4 * 10 + 100001))
-            file.write("SPC     10      {: <8.1f}23456\n".format(a5 * 10 + 100001))
+
+
+
 
         file.write("\n\n")
 

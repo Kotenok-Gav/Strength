@@ -116,44 +116,6 @@ class Rockets_bdf(models.Model):
     t_p13 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
     P13 = models.IntegerField(null = True, blank=True)
     
-    # 4.3 Закрепление контейнера
-
-    #(НЕТ)
-    # 4.3.1.1 Расстояние от нижнего края ракеты до первой (верхней) точки закрепления, м
-    dl_1 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.1.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_1 = models.PositiveSmallIntegerField(null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.1.3 Жёсткость опоры, Н/м
-    zhestkost_opor_1 = models.IntegerField(null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.2.1 Расстояние от нижнего края ракеты до второй точки закрепления, м
-    dl_2 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.2.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_2 = models.PositiveSmallIntegerField(null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.2.3 Жёсткость опоры, Н/м
-    zhestkost_opor_2 = models.IntegerField(null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.3.1 Расстояние от нижнего края ракеты до третьей точки закрепления, м
-    dl_3 = models.DecimalField(decimal_places=1, max_digits=3, null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.3.2 Направление закрепления 1 – вертикальное 2 – горизонтальное
-    nap_zak_3 = models.PositiveSmallIntegerField(null = True, blank=True)
-
-    #(НЕТ)
-    # 4.3.3.3 Жёсткость опоры, Н/м
-    zhestkost_opor_3 = models.IntegerField(null = True, blank=True)
-
 
     #------------------------------------------------------------------------
 
@@ -198,31 +160,31 @@ class Rockets_bdf(models.Model):
     Xg_1 = models.DecimalField(decimal_places=1, max_digits=12)
 
     # 5.14_1 Расстояние от нижнего края контейнера до первой точки крепления (0.0) в м
-    a1 = models.DecimalField(decimal_places=1, max_digits=12)
+    L_kon_zakr_1 = models.DecimalField(decimal_places=1, max_digits=12)
 
     # 5.14_2 Тип закрепления
     tip_zakr_1 = models.PositiveSmallIntegerField()
 
     # 5.15_1 Расстояние от нижнего края контейнера до второй точки крепления (2.8) в м
-    a2 = models.DecimalField(decimal_places=1, max_digits=12)
+    L_kon_zakr_2 = models.DecimalField(decimal_places=1, max_digits=12)
 
     # 5.15_2 Тип закрепления
     tip_zakr_2 = models.PositiveSmallIntegerField()
 
     # 5.16_1 Расстояние от нижнего края контейнера до третьей точки крепления (6.3) в м
-    a3 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
+    L_kon_zakr_3 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
 
     # 5.16_2 Тип закрепления
     tip_zakr_3 = models.PositiveSmallIntegerField(null = True, blank=True)
 
     # 5.17_1 Расстояние от нижнего края контейнера до четвертой точки крепления (9.1) в м
-    a4 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
+    L_kon_zakr_4 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
 
     # 5.17_2 Тип закрепления
     tip_zakr_4 = models.PositiveSmallIntegerField(null = True, blank=True)
 
     # 5.18_1 Расстояние от нижнего края контейнера до пятой точки крепления (13.5) в м
-    a5 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
+    L_kon_zakr_5 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
 
     # 5.18_2 Тип закрепления
     tip_zakr_5 = models.PositiveSmallIntegerField(null = True, blank=True)
