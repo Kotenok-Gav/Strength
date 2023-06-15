@@ -197,20 +197,35 @@ class Rockets_bdf(models.Model):
     # 5.13 Расстояние от нижнего края ракеты до нижнего днища бака горючего 1 ступени:  м, с точностью до десятых
     Xg_1 = models.DecimalField(decimal_places=1, max_digits=12)
 
-    # 5.14 Расстояние от нижнего края контейнера до первой точки крепления (0.0) в м
+    # 5.14_1 Расстояние от нижнего края контейнера до первой точки крепления (0.0) в м
     a1 = models.DecimalField(decimal_places=1, max_digits=12)
 
-    # 5.15 Расстояние от нижнего края контейнера до второй точки крепления (2.8) в м
+    # 5.14_2 Тип закрепления
+    tip_zakr_1 = models.PositiveSmallIntegerField()
+
+    # 5.15_1 Расстояние от нижнего края контейнера до второй точки крепления (2.8) в м
     a2 = models.DecimalField(decimal_places=1, max_digits=12)
 
-    # 5.16 Расстояние от нижнего края контейнера до третьей точки крепления (6.3) в м
-    a3 = models.DecimalField(decimal_places=1, max_digits=12)
+    # 5.15_2 Тип закрепления
+    tip_zakr_2 = models.PositiveSmallIntegerField()
 
-    # 5.17 Расстояние от нижнего края контейнера до четвертой точки крепления (9.1) в м
-    a4 = models.DecimalField(decimal_places=1, max_digits=12)
+    # 5.16_1 Расстояние от нижнего края контейнера до третьей точки крепления (6.3) в м
+    a3 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
 
-    # 5.18 Расстояние от нижнего края контейнера до пятой точки крепления (13.5) в м
-    a5 = models.DecimalField(decimal_places=1, max_digits=12)
+    # 5.16_2 Тип закрепления
+    tip_zakr_3 = models.PositiveSmallIntegerField(null = True, blank=True)
+
+    # 5.17_1 Расстояние от нижнего края контейнера до четвертой точки крепления (9.1) в м
+    a4 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
+
+    # 5.17_2 Тип закрепления
+    tip_zakr_4 = models.PositiveSmallIntegerField(null = True, blank=True)
+
+    # 5.18_1 Расстояние от нижнего края контейнера до пятой точки крепления (13.5) в м
+    a5 = models.DecimalField(decimal_places=1, max_digits=12, null = True, blank=True)
+
+    # 5.18_2 Тип закрепления
+    tip_zakr_5 = models.PositiveSmallIntegerField(null = True, blank=True)
 
 
     #------------------------------------------------------------------------

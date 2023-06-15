@@ -85,10 +85,15 @@ function Forms() {
   const [Lg_1 , setLg_1] = useState();
   const [Xg_1 , setXg_1] = useState();
   const [a1 , seta1] = useState();
+  const [tip_zakr_1 , settip_zakr_1] = useState();
   const [a2 , seta2] = useState();
+  const [tip_zakr_2 , settip_zakr_2] = useState();
   const [a3 , seta3] = useState();
+  const [tip_zakr_3 , settip_zakr_3] = useState();
   const [a4 , seta4] = useState();
+  const [tip_zakr_4 , settip_zakr_4] = useState();
   const [a5 , seta5] = useState();
+  const [tip_zakr_5 , settip_zakr_5] = useState();
 
 // 6 ------------ 
   const [modul_unga1 , setmodul_unga1] = useState();
@@ -202,10 +207,15 @@ function Forms() {
         Lg_1:Lg_1,
         Xg_1:Xg_1,
         a1:a1,
+        tip_zakr_1:tip_zakr_1,
         a2:a2,
+        tip_zakr_2:tip_zakr_2,
         a3:a3,
+        tip_zakr_3:tip_zakr_3,
         a4:a4,
+        tip_zakr_4:tip_zakr_4,
         a5:a5,
+        tip_zakr_5:tip_zakr_5,
 
 // 6 ------------ 
         modul_unga1:modul_unga1,
@@ -299,10 +309,15 @@ function Forms() {
       setLg_1("");
       setXg_1("");
       seta1("");
+      settip_zakr_1("");
       seta2("");
+      settip_zakr_2("");
       seta3("");
+      settip_zakr_3("");
       seta4("");
+      settip_zakr_4("");
       seta5("");
+      settip_zakr_5("");
 
 // 6 ------------ 
       setmodul_unga1("");

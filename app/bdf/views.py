@@ -101,10 +101,15 @@ def bdf_list(request):
         Lg_1 = request.data.get("Lg_1")
         Xg_1 = request.data.get("Xg_1")
         a1 = request.data.get("a1")
+        tip_zakr_1 = request.data.get("tip_zakr_1")
         a2 = request.data.get("a2")
+        tip_zakr_2 = request.data.get("tip_zakr_2")
         a3 = request.data.get("a3")
+        tip_zakr_3 = request.data.get("tip_zakr_3")
         a4 = request.data.get("a4")
+        tip_zakr_4 = request.data.get("tip_zakr_4")
         a5 = request.data.get("a5")
+        tip_zakr_5 = request.data.get("tip_zakr_5")
 # 6 ------------
         modul_unga1 = request.data.get("modul_unga1")
         koeff_puass1 = request.data.get("koeff_puass1")
@@ -173,10 +178,16 @@ def bdf_list(request):
             Lg_1=Decimal(Lg_1),
             Xg_1=Decimal(Xg_1),
             a1=Decimal(a1),
+            tip_zakr_1=Decimal(tip_zakr_1),
             a2=Decimal(a2),
+            tip_zakr_2=Decimal(tip_zakr_2),
             a3=Decimal(a3),
+            tip_zakr_3=Decimal(tip_zakr_3),
             a4=Decimal(a4),
+            tip_zakr_4=Decimal(tip_zakr_4),
             a5=Decimal(a5),
+            tip_zakr_5=Decimal(tip_zakr_5),
+            
             # 6 ------------
             modul_unga1=Decimal(modul_unga1),
             koeff_puass1=Decimal(koeff_puass1),
@@ -211,7 +222,7 @@ def bdf_list(request):
         # Запись GRID с 1 по N-й узел
         u = 0
         k = 0.1
-        while u < float(bd.N):
+        while u < float(N_rocket):
             cox = u * k
             u += 1
             file.write("GRID    {: <8d}        {: <8.1f}\n".format(u, cox))
@@ -221,10 +232,10 @@ def bdf_list(request):
         u = 0
         k = 0.1
         d0 = 0
-        while u < float(bd.L):
+        while u < float(N_konteiner):
             u_1 = 100001 + u
             cox = u * k
-            coy = (d0 / 2) + 0.1
+            coy = (bd.d0_Kon - bd.d0) / 2
             u += 1
             file.write(
                 "GRID    {: <8d}        {: <8.1f}{: <8.2f}\n".format(u_1, cox, coy))
@@ -256,7 +267,7 @@ def bdf_list(request):
         # Запись CBAR с 1 по N-1-й узел
         u = 0
         Np = 1  # Np - номер параметра балочного элемента (для ракеты =1 )
-        while u < float(bd.N):
+        while u < float(N_rocket):
             u += 1
             u = int(u)
             file.write("CBAR    {: <8d}{: <8d}{: <8d}{: <8d}0.0     1.0     0.0\n".format(
@@ -266,7 +277,7 @@ def bdf_list(request):
         # Запись CBAR с 100001 по 10000N-1-й узел контейнера
         u = 0
         Np = 2  # Np - номер параметра балочного элемента (для контейнера =2 )
-        while u < float(bd.N) + 10:
+        while u < float(N_konteiner) + 10:
             u += 1
             u = int(u)
             file.write(
@@ -348,7 +359,7 @@ def bdf_list(request):
 
         # Запись NOLIN1 с 1 по N-й узел
         u = 1
-        while u < float(bd.N) + 1:
+        while u < float(N_rocket) + 1:
             u += 1
             u = int(u)
             file.write(
@@ -364,7 +375,7 @@ def bdf_list(request):
             P_veter = ((po_vozduh * bd.V_sredy * bd.V_sredy) / 2) * \
                 (Decimal('0.1') * bd.d0)
             u = 1
-            while u < float(bd.N) + 1:
+            while u < float(N_rocket) + 1:
                 u += 1
                 u = int(u)
                 vychitanie = (bd.L + 1) - ((u * k) - k)
@@ -378,7 +389,7 @@ def bdf_list(request):
             P_vody = ((po_vody * bd.V_sredy * bd.V_sredy) / 2) * \
                 (Decimal('0.1') * bd.d0)
             u = 1
-            while u < float(bd.N) + 1:
+            while u < float(N_rocket) + 1:
                 u += 1
                 u = int(u)
                 vychitanie = (bd.L + 1) - ((u * k) - k)
@@ -389,7 +400,7 @@ def bdf_list(request):
 
         # Запись SPC с 1 по N-й узел
         u = 1
-        while u < float(bd.N) + 1:
+        while u < float(N_rocket) + 1:
             u += 1
             u = int(u)
             file.write("SPC     10      {: <8d}345\n".format(u))
@@ -397,7 +408,7 @@ def bdf_list(request):
 
         # Запись SPC с 100001 по 10000N-й узел контейнера
         u = 1
-        while u < float(bd.N) + 11:
+        while u < float(N_konteiner) + 11:
             u += 1
             u = int(u)
             file.write("SPC     10      {: <8d}345\n".format(u + 100000))
@@ -811,7 +822,7 @@ def bdf_list(request):
         # Запись BLSEG
 
         file.write("BLSEG   2       100001  THRU    {: <8.1f}".format(
-            float(bd.N) + 100010))
+            float(N_konteiner) + 100010))
         file.write("\n\n")
 
         # Запись BFRIC
