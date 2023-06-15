@@ -166,12 +166,12 @@ def bdf_list(request):
             tip_zakr_1=Decimal(tip_zakr_1),
             L_kon_zakr_2=Decimal(L_kon_zakr_2),
             tip_zakr_2=Decimal(tip_zakr_2),
-            L_kon_zakr_3=Decimal(L_kon_zakr_3),
-            tip_zakr_3=Decimal(tip_zakr_3),
-            L_kon_zakr_4=Decimal(L_kon_zakr_4),
-            tip_zakr_4=Decimal(tip_zakr_4),
-            L_kon_zakr_5=Decimal(L_kon_zakr_5),
-            tip_zakr_5=Decimal(tip_zakr_5),
+            L_kon_zakr_3=(L_kon_zakr_3),
+            tip_zakr_3=(tip_zakr_3),
+            L_kon_zakr_4=(L_kon_zakr_4),
+            tip_zakr_4=(tip_zakr_4),
+            L_kon_zakr_5=(L_kon_zakr_5),
+            tip_zakr_5=(tip_zakr_5),
             
             # 6 ------------
             modul_unga1=Decimal(modul_unga1),
@@ -201,8 +201,8 @@ def bdf_list(request):
             "BEGIN   BULK\nPARAM   G           0.1\nPARAM   W3          1.0\n\nPARAM   POST      0\n")
         file.write("PARAM   PRTMAXIM  YES\n\n")
 
-        N_rocket = L / 0.1 + 1
-        N_konteiner = L_Kon / 0.1 + 1
+        N_rocket = int(L) / 0.1 + 1
+        N_konteiner = int(L_Kon) / 0.1 + 1
 
         # Запись GRID с 1 по N-й узел
         u = 0
@@ -420,12 +420,28 @@ def bdf_list(request):
         # Запись SPC опорных узлов контейнера
 
         file.write("\n\n")
-        file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(a1 * 10 + 100001))
-        file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(a2 * 10 + 100001))
-        file.write("SPC     10      {: <8.1f}tip_zakr_3\n".format(a3 * 10 + 100001))
-        file.write("SPC     10      {: <8.1f}tip_zakr_4\n".format(a4 * 10 + 100001))
-        file.write("SPC     10      {: <8.1f}tip_zakr_5\n".format(a5 * 10 + 100001))
 
+        if  tip_zakr_3 == None:
+            file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(L_kon_zakr_1 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(L_kon_zakr_2 * 10 + 100001))
+
+        elif  tip_zakr_4 == None:
+            file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(int(L_kon_zakr_1 * 10) + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(int(L_kon_zakr_2) * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_3\n".format(int(L_kon_zakr_3) * 10 + 100001))
+
+        elif  tip_zakr_5 == None:
+            file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(L_kon_zakr_1 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(L_kon_zakr_2 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_3\n".format(L_kon_zakr_3 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_4\n".format(L_kon_zakr_4 * 10 + 100001))
+
+        else:
+            file.write("SPC     10      {: <8.1f}tip_zakr_1\n".format(L_kon_zakr_1 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_2\n".format(L_kon_zakr_2 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_3\n".format(L_kon_zakr_3 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_4\n".format(L_kon_zakr_4 * 10 + 100001))
+            file.write("SPC     10      {: <8.1f}tip_zakr_5\n".format(L_kon_zakr_5 * 10 + 100001))
 
 
 
@@ -921,7 +937,7 @@ def bdf_list(request):
 
         massa_korpusa = bd.m - bd.m_gch - bd.m_cy - bd.m_dy_1 - bd.mo_1 - bd.mg_1
         plotnost1 = massa_korpusa / (((Decimal('3.14') * bd.d0 * bd.d0 / Decimal('4')) - (Decimal(
-            '3.14') * (bd.d0 - Decimal('tol_R')) * (bd.d0 - Decimal('tol_R')) / Decimal('4'))) * bd.L)
+            '3.14') * (bd.d0 - int(tol_R)) * (bd.d0 - int(tol_R)) / Decimal('4'))) * bd.L)
 
         file.write("MAT1    1       {: <2.1f}+10          {: <8.2f}{: <8.1f}\n".format(
             bd.modul_unga1, bd.koeff_puass1, plotnost1))
@@ -935,7 +951,7 @@ def bdf_list(request):
             "PBARL   1       1               TUBE2\n        {: <8.2f}tol_R".format(bd.d0 / 2))
         file.write("\n")
         file.write("PBARL   2       2               TUBE2\n        {: <8.2f}tol_Kon".format(
-            d0_Kon / 2))
+            int(d0_Kon) / 2))
         file.write("\n\n")
 
         # Запись LSEQ для ускорения свободного падения
