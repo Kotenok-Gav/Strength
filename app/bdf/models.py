@@ -74,14 +74,11 @@ class Rockets_bdf(models.Model):
 
     # 4.2 Задание тяги двигателя (Н) в зависимости от времени (с)
 
-    t_p0 = models.DecimalField(decimal_places=2, max_digits=6, default=0)
-    P0 = models.IntegerField(default=0)
-
     t_p1 = models.DecimalField(decimal_places=2, max_digits=6)
     P1 = models.IntegerField()
 
-    t_p2 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
-    P2 = models.IntegerField(null = True, blank=True)
+    t_p2 = models.DecimalField(decimal_places=2, max_digits=6)
+    P2 = models.IntegerField()
 
     t_p3 = models.DecimalField(decimal_places=2, max_digits=6, null = True, blank=True)
     P3 = models.IntegerField(null = True, blank=True)

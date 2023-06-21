@@ -6,89 +6,87 @@ function Forms() {
   const [bdf, setBdf] = useState([]);
 
 // 1 ------------ 
-  const [text, setText, ] = useState();
-  const [start_rocket, setStart_rocket] = useState();
-  const [t, sett] = useState();
+  const [text, setText] = useState("Ангара");
+  const [start_rocket, setStart_rocket] = useState(1);
+  const [t, sett] = useState(5.673);
 
 // 2 ------------ 
-  const [d0, setd0] = useState();
-  const [tol_R, settol_R] = useState();
-  const [L, setL] = useState();
-  const [d0_Kon, setd0_Kon] = useState();
-  const [tol_Kon, settol_Kon] = useState();
-  const [L_Kon, setL_Kon] = useState();
+  const [d0, setd0] = useState(3.03);
+  const [tol_R, settol_R] = useState(0.007);
+  const [L, setL] = useState(21.6);
+  const [d0_Kon, setd0_Kon] = useState(3.25);
+  const [tol_Kon, settol_Kon] = useState(0.004);
+  const [L_Kon, setL_Kon] = useState(25.0);
 
 // 3 ------------ 
-  const [kolichestvo_amort, setkolichestvo_amort] = useState();
-  const [zhestkost_amort, setzhestkost_amort] = useState();
-  const [X1, setX1] = useState();
-  const [X2, setX2] = useState();
-  const [X3, setX3] = useState();
+  const [kolichestvo_amort, setkolichestvo_amort] = useState(3);
+  const [zhestkost_amort, setzhestkost_amort] = useState(567.4);
+  const [X1, setX1] = useState(19.5);
+  const [X2, setX2] = useState(8.4);
+  const [X3, setX3] = useState(2.9);
   const [X4, setX4] = useState();
   const [X5, setX5] = useState();
 
 // 4 ------------ 
-  const [V_sredy, setV_sredy] = useState();
-  const [t_p0 , sett_p0] = useState();
-  const [P0 , setP0] = useState();
-  const [t_p1 , sett_p1] = useState();
-  const [P1 , setP1] = useState();
-  const [t_p2 , sett_p2] = useState();
-  const [P2 , setP2] = useState();
-  const [t_p3 , sett_p3] = useState();
-  const [P3 , setP3] = useState();
-  const [t_p4 , sett_p4] = useState();
-  const [P4 , setP4] = useState();
-  const [t_p5 , sett_p5] = useState();
-  const [P5 , setP5] = useState();
-  const [t_p6 , sett_p6] = useState();
-  const [P6 , setP6] = useState();
-  const [t_p7 , sett_p7] = useState();
-  const [P7 , setP7] = useState();
-  const [t_p8 , sett_p8] = useState();
-  const [P8 , setP8] = useState();
-  const [t_p9 , sett_p9] = useState();
-  const [P9 , setP9] = useState();
-  const [t_p10 , sett_p10] = useState();
-  const [P10 , setP10] = useState();
-  const [t_p11 , sett_p11] = useState();
-  const [P11 , setP11] = useState();
-  const [t_p12 , sett_p12] = useState();
-  const [P12 , setP12] = useState();
-  const [t_p13 , sett_p13] = useState();
-  const [P13 , setP13] = useState();
+  const [V_sredy, setV_sredy] = useState(25);
+  const [t_p1 , sett_p1] = useState(0.11);
+  const [P1 , setP1] = useState(3676743);
+  const [t_p2 , sett_p2] = useState(0.25);
+  const [P2 , setP2] = useState(6120857);
+  const [t_p3 , sett_p3] = useState(0.5);
+  const [P3 , setP3] = useState(9001571);
+  const [t_p4 , sett_p4] = useState(0.68);
+  const [P4 , setP4] = useState(10460429);
+  const [t_p5 , sett_p5] = useState(0.86);
+  const [P5 , setP5] = useState(9598857);
+  const [t_p6 , sett_p6] = useState(1.00);
+  const [P6 , setP6] = useState(10761714);
+  const [t_p7 , sett_p7] = useState(1.34);
+  const [P7 , setP7] = useState(11697286);
+  const [t_p8 , sett_p8] = useState(1.97);
+  const [P8 , setP8] = useState(11401286);
+  const [t_p9 , sett_p9] = useState(2.42);
+  const [P9 , setP9] = useState(10804000);
+  const [t_p10 , sett_p10] = useState(3.03);
+  const [P10 , setP10] = useState(9313429);
+  const [t_p11 , sett_p11] = useState(3.46);
+  const [P11 , setP11] = useState(8055429);
+  const [t_p12 , sett_p12] = useState(3.68);
+  const [P12 , setP12] = useState(7178000);
+  const [t_p13 , sett_p13] = useState(3.80);
+  const [P13 , setP13] = useState(0);
 
 // 5 ------------ 
-  const [m , setm] = useState();
-  const [m_gch , setm_gch] = useState();
-  const [X_gch , setX_gch] = useState();
-  const [m_cy , setm_cy] = useState();
-  const [X_cy , setX_cy] = useState();
-  const [m_dy_1 , setm_dy_1] = useState();
-  const [X_dy_1 , setX_dy_1] = useState();
-  const [mo_1 , setmo_1] = useState();
-  const [Lo_1 , setLo_1] = useState();
-  const [Xo_1 , setXo_1] = useState();
-  const [mg_1 , setmg_1] = useState();
-  const [Lg_1 , setLg_1] = useState();
-  const [Xg_1 , setXg_1] = useState();
-  const [L_kon_zakr_1 , setL_kon_zakr_1] = useState();
-  const [tip_zakr_1 , settip_zakr_1] = useState();
-  const [L_kon_zakr_2 , setL_kon_zakr_2] = useState();
-  const [tip_zakr_2 , settip_zakr_2] = useState();
-  const [L_kon_zakr_3 , setL_kon_zakr_3] = useState();
-  const [tip_zakr_3 , settip_zakr_3] = useState();
+  const [m , setm] = useState(120000.6);
+  const [m_gch , setm_gch] = useState(20000.6);
+  const [X_gch , setX_gch] = useState(19.6);
+  const [m_cy , setm_cy] = useState(500.6);
+  const [X_cy , setX_cy] = useState(17.2);
+  const [m_dy_1 , setm_dy_1] = useState(15000.2);
+  const [X_dy_1 , setX_dy_1] = useState(2.1);
+  const [mo_1 , setmo_1] = useState(45000.5);
+  const [Lo_1 , setLo_1] = useState(8.2);
+  const [Xo_1 , setXo_1] = useState(8.2);
+  const [mg_1 , setmg_1] = useState(15000.9);
+  const [Lg_1 , setLg_1] = useState(3.7);
+  const [Xg_1 , setXg_1] = useState(4.0);
+  const [L_kon_zakr_1 , setL_kon_zakr_1] = useState(0.0);
+  const [tip_zakr_1 , settip_zakr_1] = useState(1345);
+  const [L_kon_zakr_2 , setL_kon_zakr_2] = useState(6.8);
+  const [tip_zakr_2 , settip_zakr_2] = useState(2345);
+  const [L_kon_zakr_3 , setL_kon_zakr_3] = useState(19.3);
+  const [tip_zakr_3 , settip_zakr_3] = useState(2345);
   const [L_kon_zakr_4 , setL_kon_zakr_4] = useState();
   const [tip_zakr_4 , settip_zakr_4] = useState();
   const [L_kon_zakr_5 , setL_kon_zakr_5] = useState();
   const [tip_zakr_5 , settip_zakr_5] = useState();
 
 // 6 ------------ 
-  const [modul_unga1 , setmodul_unga1] = useState();
-  const [koeff_puass1 , setkoeff_puass1] = useState();
-  const [modul_unga2 , setmodul_unga2] = useState();
-  const [koeff_puass2 , setkoeff_puass2] = useState();
-  const [plotnost2 , setplotnost2] = useState();
+  const [modul_unga1 , setmodul_unga1] = useState(70000);
+  const [koeff_puass1 , setkoeff_puass1] = useState(0.3);
+  const [modul_unga2 , setmodul_unga2] = useState(7000);
+  const [koeff_puass2 , setkoeff_puass2] = useState(0.3);
+  const [plotnost2 , setplotnost2] = useState(2000);
 
 
   const handleDownload = async () => {
@@ -142,8 +140,6 @@ function Forms() {
 
 // 4 ------------ 
         V_sredy:V_sredy,
-        t_p0:t_p0,
-        P0:P0,
         t_p1:t_p1,
         P1:P1,
         t_p2:t_p2,
@@ -234,8 +230,6 @@ function Forms() {
 
 // 4 ------------ 
       setV_sredy("");
-      sett_p0("");
-      setP0("");
       sett_p1("");
       setP1("");
       sett_p2("");
@@ -602,37 +596,11 @@ function Forms() {
           </div>
 
           <br></br>
+          <br></br>
+
 
           {/* 4.2 */}
           <p className="pb-3 pl-5 text-xl">4.2 Задание тяги двигателя (Н) в зависимости от времени (с)</p>
-          <p className="pb-3 pl-5 text-xl">Время нулевой точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={t_p0}
-              onChange={e => sett_p0(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="0"
-            />
-            <Tool text="м/с"></Tool>
-          </div>
-
-          <br></br>
-
-          <p className="pb-3 pl-5 text-xl">Тяга нулевой точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={P0}
-              onChange={e => setP0(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="0"
-            />
-            <Tool text="Н"></Tool>
-          </div>
-
-          <br></br>
-
           <p className="pb-3 pl-5 text-xl">Время 1 точки</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
             <input

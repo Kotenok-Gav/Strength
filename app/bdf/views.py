@@ -46,8 +46,6 @@ def bdf_list(request):
         X5 = request.data.get("X5")
         # 4 ------------
         V_sredy = request.data.get("V_sredy")
-        t_p0 = request.data.get("t_p0")
-        P0 = request.data.get("P0")
         t_p1 = request.data.get("t_p1")
         P1 = request.data.get("P1")
         t_p2 = request.data.get("t_p2")
@@ -115,213 +113,197 @@ def bdf_list(request):
         bd = Rockets_bdf.objects.create(
             # 1 ------------
             text=text,
-            start_rocket=float(start_rocket),
-            t=Decimal(t),
+            start_rocket=start_rocket,
+            t=t,
             # 2 ------------
-            d0=Decimal(d0),
-            tol_R=Decimal(tol_R),
-            L=Decimal(L),
-            d0_Kon=Decimal(d0_Kon),
-            tol_Kon=Decimal(tol_Kon),
-            L_Kon=Decimal(L_Kon),
+            d0=d0,
+            tol_R=tol_R,
+            L=L,
+            d0_Kon=d0_Kon,
+            tol_Kon=tol_Kon,
+            L_Kon=L_Kon,
             # 3 ------------
-            kolichestvo_amort=Decimal(kolichestvo_amort),
-            zhestkost_amort=Decimal(zhestkost_amort),
-            X1=Decimal(X1),
-            X2=Decimal(X2),
-            X3=Decimal(X3),
-            X4=Decimal(X4),
-            X5=Decimal(X5),
+            kolichestvo_amort=kolichestvo_amort,
+            zhestkost_amort=zhestkost_amort,
+            X1=X1,
+            X2=X2,
+            X3=X3,
+            X4=X4,
+            X5=X5,
             # 4 ------------
-            V_sredy=Decimal(V_sredy),
-            t_p0=Decimal(t_p0),
-            P0=Decimal(P0),
-            t_p1=Decimal(t_p1),
-            P1=Decimal(P1),
-            t_p2=Decimal(t_p2),
-            P2=Decimal(P2),
-            t_p3=Decimal(t_p3),
-            P3=Decimal(P3),
-            t_p4=Decimal(t_p4),
-            P4=Decimal(P4),
-            t_p5=Decimal(t_p5),
-            P5=Decimal(P5),
-            t_p6=Decimal(t_p6),
-            P6=Decimal(P6),
-            t_p7=Decimal(t_p7),
-            P7=Decimal(P7),
-            t_p8=Decimal(t_p8),
-            P8=Decimal(P8),
-            t_p9=Decimal(t_p9),
-            P9=Decimal(P9),
-            t_p10=Decimal(t_p10),
-            P10=Decimal(P10),
-            t_p11=Decimal(t_p11),
-            P11=Decimal(P11),
-            t_p12=Decimal(t_p12),
-            P12=Decimal(P12),
-            t_p13=Decimal(t_p13),
-            P13=Decimal(P13),
+            V_sredy=V_sredy,
+            t_p1=t_p1,
+            P1=P1,
+            t_p2=t_p2,
+            P2=P2,
+            t_p3=t_p3,
+            P3=P3,
+            t_p4=t_p4,
+            P4=P4,
+            t_p5=t_p5,
+            P5=P5,
+            t_p6=t_p6,
+            P6=P6,
+            t_p7=t_p7,
+            P7=P7,
+            t_p8=t_p8,
+            P8=P8,
+            t_p9=t_p9,
+            P9=P9,
+            t_p10=t_p10,
+            P10=P10,
+            t_p11=t_p11,
+            P11=P11,
+            t_p12=t_p12,
+            P12=P12,
+            t_p13=t_p13,
+            P13=P13,
             # 5 ------------
-            m=Decimal(m),
-            m_gch=Decimal(m_gch),
-            X_gch=Decimal(X_gch),
-            m_cy=Decimal(m_cy),
-            X_cy=Decimal(X_cy),
-            m_dy_1=Decimal(m_dy_1),
-            X_dy_1=Decimal(X_dy_1),
-            mo_1=Decimal(mo_1),
-            Lo_1=Decimal(Lo_1),
-            Xo_1=Decimal(Xo_1),
-            mg_1=Decimal(mg_1),
-            Lg_1=Decimal(Lg_1),
-            Xg_1=Decimal(Xg_1),
-            L_kon_zakr_1=Decimal(L_kon_zakr_1),
-            tip_zakr_1=Decimal(tip_zakr_1),
-            L_kon_zakr_2=Decimal(L_kon_zakr_2),
-            tip_zakr_2=Decimal(tip_zakr_2),
-            L_kon_zakr_3=(L_kon_zakr_3),
-            tip_zakr_3=(tip_zakr_3),
-            L_kon_zakr_4=(L_kon_zakr_4),
-            tip_zakr_4=(tip_zakr_4),
-            L_kon_zakr_5=(L_kon_zakr_5),
-            tip_zakr_5=(tip_zakr_5),
+            m=m,
+            m_gch=m_gch,
+            X_gch=X_gch,
+            m_cy=m_cy,
+            X_cy=X_cy,
+            m_dy_1=m_dy_1,
+            X_dy_1=X_dy_1,
+            mo_1=mo_1,
+            Lo_1=Lo_1,
+            Xo_1=Xo_1,
+            mg_1=mg_1,
+            Lg_1=Lg_1,
+            Xg_1=Xg_1,
+            L_kon_zakr_1=L_kon_zakr_1,
+            tip_zakr_1=tip_zakr_1,
+            L_kon_zakr_2=L_kon_zakr_2,
+            tip_zakr_2=tip_zakr_2,
+            L_kon_zakr_3=L_kon_zakr_3,
+            tip_zakr_3=tip_zakr_3,
+            L_kon_zakr_4=L_kon_zakr_4,
+            tip_zakr_4=tip_zakr_4,
+            L_kon_zakr_5=L_kon_zakr_5,
+            tip_zakr_5=tip_zakr_5,
             # 6 ------------
-            modul_unga1=Decimal(modul_unga1),
-            koeff_puass1=Decimal(koeff_puass1),
-            modul_unga2=Decimal(modul_unga2),
-            koeff_puass2=Decimal(koeff_puass2),
-            plotnost2=Decimal(plotnost2),
+            modul_unga1=modul_unga1,
+            koeff_puass1=koeff_puass1,
+            modul_unga2=modul_unga2,
+            koeff_puass2=koeff_puass2,
+            plotnost2=plotnost2,
         )
 
-        # ----------------------------------------------------------------
+#-------Начало формирования BDF файла---------------------------------------------------------
+
         file = open("1.txt", "w")
-        file.write(
-            "NASTRAN SYSTEM(151)=1\nNASTRAN BUFFSIZE=65537\n\nID START\nTIME	300\nSOL	129\nDIAG	8,50\nCEND\necho=both\n\n"
-        )
-        file.write(
-            "DISPLACEMENT(SORT1,REAL)	= all\nSPCFORCES(SORT1, REAL) = all\nFORCE(SORT1, REAL, BILIN) = all\n"
-        )
-        file.write(
-            "VELOCITY = all\nACCELERATION = all\nOLOAD(SORT1, REAL) = all\nLOADSET = 100\n\nSUBCASE 1\nSUBTITLE = STATIKA\n"
-        )
-        file.write(
-            "DISPLACEMENT = ALL\nLOAD = 222\nSPC = 10\nTSTEPNL = 1\nPARAM, TSTATIC, 1\n\n"
-        )
-        file.write(
-            "SUBCASE 2\nSUBTITLE =   DINAMIKA_1\nPARAM,TSTATIC,-1\nDLOAD=210\nDISPLACEMENT=ALL\n"
-        )
+
+        file.write("NASTRAN SYSTEM(151)=1\nNASTRAN BUFFSIZE=65537\n\nID START\nTIME	300\nSOL	129\nDIAG	8,50\nCEND\necho=both\n\n")
+
+        file.write("DISPLACEMENT(SORT1,REAL)	= all\nSPCFORCES(SORT1, REAL) = all\nFORCE(SORT1, REAL, BILIN) = all\n")
+
+        file.write("VELOCITY = all\nACCELERATION = all\nOLOAD(SORT1, REAL) = all\nLOADSET = 100\n\nSUBCASE 1\nSUBTITLE = STATIKA\n")
+
+        file.write("DISPLACEMENT = ALL\nLOAD = 222\nSPC = 10\nTSTEPNL = 1\nPARAM, TSTATIC, 1\n\n")
+
+        file.write("SUBCASE 2\nSUBTITLE =   DINAMIKA_1\nPARAM,TSTATIC,-1\nDLOAD=210\nDISPLACEMENT=ALL\n")
+
         file.write("TSTEPNL=2\nNONLINEAR=1\nSPC=10\nSTATSUB  =   5\n\n")
-        file.write(
-            "OUTPUT(XYPLOT)\n   PLOTTER = NAST\n   CSCALE = 1.3\n   XAXIS = YES\n   YAXIS = YES\n"
-        )
-        file.write(
-            "   XTITLE = TIME IN SEC\n   YTITLE = DISPLACEMENT\nXYPLOT DISP RESP / 11(T2) / 11(T3) / 11(R1)\n"
-        )
-        file.write(
-            "BEGIN   BULK\nPARAM   G           0.1\nPARAM   W3          1.0\n\nPARAM   POST      0\n"
-        )
+
+        file.write("OUTPUT(XYPLOT)\n   PLOTTER = NAST\n   CSCALE = 1.3\n   XAXIS = YES\n   YAXIS = YES\n")
+
+        file.write("   XTITLE = TIME IN SEC\n   YTITLE = DISPLACEMENT\nXYPLOT DISP RESP / 11(T2) / 11(T3) / 11(R1)\n")
+
+        file.write("BEGIN   BULK\nPARAM   G           0.1\nPARAM   W3          1.0\n\nPARAM   POST      0\n")
+
         file.write("PARAM   PRTMAXIM  YES\n\n")
 
-        N_rocket = float(L) / 0.1 + 1
-        N_konteiner = float(L_Kon) / 0.1 + 1
 
-        # Запись GRID с 1 по N-й узел
-        u = 0
+        N_rocket = L / 0.1 + 1
+        N_konteiner = L_Kon / 0.1 + 1
         k = 0.1
-        while u < float(N_rocket):
+
+
+#--1--- Запись GRID с 1 по N-й узел
+        u = 0
+        while u < N_rocket:
             cox = u * k
             u += 1
-            file.write("GRID    {: <8d}        {: <8.1f}\n".format(u, cox))
+            file.write(f"GRID    {u: <8d}        {cox: <8.1f}\n")
         file.write("\n")
 
-        # Запись GRID с 100001 по 10000N-й узел контейнера
+
+#--2--- Запись GRID с 100001 по 10000N-й узел контейнера
         u = 0
-        k = 0.1
-        d0 = 0
-        while u < float(N_konteiner):
+        while u < N_konteiner:
             u_1 = 100001 + u
             cox = u * k
             coy = (bd.d0_Kon - bd.d0) / 2
             u += 1
-            file.write(
-                "GRID    {: <8d}        {: <8.1f}{: <8.2f}\n".format(u_1, cox, coy)
-            )
+            file.write(f"GRID    {u_1: <8d}        {cox: <8.1f}{coy: <8.2f}\n")
         file.write("\n")
 
-        # Запись GRID для баков окилителя с Xo+1000 по (Xo+o)+1000 узел
-        k = Decimal("0.1")
+
+#--3--- Запись GRID для баков окилителя с Xo+1000 по (Xo+o)+1000 узел
         o = (bd.Xo_1 + bd.Lo_1) / k + 1001
         o1 = bd.Xo_1 / k + 1001
         u = o1
         while u < o + 1:
             cox = (u - 1001) * k
+            file.write(f"GRID    {int(u): <8d}        {cox: <8.1f}\n")
             u += 1
-            u = int(u)
-            file.write("GRID    {: <8d}        {: <8.1f}\n".format(u, cox))
         file.write("\n")
 
-        # Запись GRID для баков горючего с Xg+1000 по (Xg+g)+1000 узел
+
+#--4--- Запись GRID для баков горючего с Xg+1000 по (Xg+g)+1000 узел
         g = (bd.Xg_1 + bd.Lg_1) / k + 1001
         g1 = bd.Xg_1 / k + 1001
         u = g1
         while u < g + 1:
             cox = (u - 1001) * k
+            file.write(f"GRID    {int(u): <8d}        {cox: <8.1f}\n")
             u += 1
-            u = int(u)
-            file.write("GRID    {: <8d}        {: <8.1f}\n".format(u, cox))
         file.write("\n\n")
 
-        # Запись CBAR с 1 по N-1-й узел
+
+#--5--- Запись CBAR с 1 по N-1-й узел
         u = 0
-        Np = 1  # Np - номер параметра балочного элемента (для ракеты =1 )
-        while u < float(N_rocket):
+        Np = 1  # Np - номер параметра балочного элемента (для ракеты = 1)
+        while u < N_rocket:
             u += 1
-            u = int(u)
-            file.write(
-                "CBAR    {: <8d}{: <8d}{: <8d}{: <8d}0.0     1.0     0.0\n".format(
-                    u, Np, u, u + 1
-                )
-            )
+            file.write(f"CBAR    {int(u): <8d}{Np: <8d}{int(u): <8d}{u + 1: <8d}0.0     1.0     0.0\n")
         file.write("\n\n")
 
-        # Запись CBAR с 100001 по 10000N-1-й узел контейнера
+
+#--6--- Запись CBAR с 100001 по 10000N-1-й узел контейнера
         u = 0
-        Np = 2  # Np - номер параметра балочного элемента (для контейнера =2 )
-        while u < float(N_konteiner) + 10:
+        Np = 2  # Np - номер параметра балочного элемента (для контейнера = 2)
+        while u < N_konteiner + 10:
             u += 1
             u = int(u)
-            file.write(
-                "CBAR    {: <8d}{: <8d}{: <8d}{: <8d}0.0     1.0     0.0\n".format(
-                    u + 100000, Np, u + 100000, u + 100001
-                )
-            )
+            file.write(f"CBAR    {u + 100000: <8d}{Np: <8d}{u + 100000: <8d}{u + 100001: <8d}0.0     1.0     0.0\n")
         file.write("\n\n")
 
-        # Запись RDE2 для баков окислителя с Xo+1000 по (Xo+o)+1000 узел
+
+#--7--- Запись RBE2 для баков окислителя с Xo+1000 по (Xo+o)+1000 узел
         u = int(o1)
         while u < o + 1:
             u += 1
             u = int(u)
-            file.write(
-                "RBE2    {: <8d}{: <8d}2       {: <8d}\n".format(u + 1000, u - 1000, u)
-            )
+            file.write("RBE2    {: <8d}{: <8d}2       {: <8d}\n".format(u + 1000, u - 1000, u))
         file.write("\n")
-        file.write(
-            "RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(
-                int(o1 + 2000), int(o1 - 1000), int(o1)
-            )
-        )
+
+        file.write("RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(int(o1 + 2000), int(o1 - 1000), int(o1)))
+        
         u = o1
         while u < o:
             u += 1
             u = int(u)
-            file.write(
-                "RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(u + 2001, u, u + 1)
-            )
+            file.write("RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(u + 2001, u, u + 1))
         file.write("\n")
 
-        # Запись RDE2 для баков горючего с Xg+1000 по (Xg+g)+1000 узел
+
+
+
+
+
+        # Запись RBE2 для баков горючего с Xg+1000 по (Xg+g)+1000 узел
         u = int(g1)
         while u < g + 1:
             u += 1
@@ -409,9 +391,8 @@ def bdf_list(request):
         d = d0 = bd.d0
         if bd.start_rocket == 1:
             po_vozduh = float(1225)
-            po_vozduh = Decimal(po_vozduh)
             P_veter = ((po_vozduh * bd.V_sredy * bd.V_sredy) / 2) * (
-                Decimal("0.1") * bd.d0
+                0.1 * bd.d0
             )
             u = 1
             while u < float(N_rocket) + 1:
@@ -1204,18 +1185,7 @@ def bdf_list(request):
         # Запись MAT1
 
         massa_korpusa = bd.m - bd.m_gch - bd.m_cy - bd.m_dy_1 - bd.mo_1 - bd.mg_1
-        plotnost1 = massa_korpusa / (
-            (
-                (Decimal("3.14") * bd.d0 * bd.d0 / Decimal("4"))
-                - (
-                    Decimal("3.14")
-                    * (bd.d0 - Decimal(tol_R))
-                    * (bd.d0 - Decimal(tol_R))
-                    / Decimal("4")
-                )
-            )
-            * bd.L
-        )
+        plotnost1 = massa_korpusa / (((3.14 * bd.d0 * bd.d0 / 4) - (3.14 * (bd.d0 - tol_R) * (bd.d0 - tol_R) / 4))* bd.L)
 
         file.write(
             "MAT1    1       {: <2.1f}+10          {: <8.2f}{: <8.1f}\n".format(
@@ -1267,9 +1237,7 @@ def bdf_list(request):
         # Запись GRID для продольной амортизации контейнера
 
         file.write(
-            "GRID    9000            0.0     {: <8.3f}0.0".format(
-                (bd.d0 / 2) + Decimal("0.1")
-            )
+            "GRID    9000            0.0     {: <8.3f}0.0".format((bd.d0 / 2) + 0.1)
         )
         file.write("\n\n")
 
@@ -1291,7 +1259,6 @@ def bdf_list(request):
         # Запись TSTEPNL
 
         n_time = 0.001  # шаг по времени
-        n_time = Decimal(n_time)
         t_shoda = bd.t / n_time  # время схода поясов амортизации
 
         file.write("TSTEPNL 1       10      0.1     1       ADAPT\n")
