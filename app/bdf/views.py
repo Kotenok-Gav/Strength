@@ -226,7 +226,7 @@ def bdf_list(request):
             cox = u * k
             u += 1
             file.write(f"GRID    {u: <8d}        {cox: <8.1f}\n")
-        file.write("\n")
+        file.write("\n\n\n\n\n")
 
 
 #--2--- Запись GRID с 100001 по 10000N-й узел контейнера
@@ -237,7 +237,7 @@ def bdf_list(request):
             coy = (bd.d0_Kon - bd.d0) / 2
             u += 1
             file.write(f"GRID    {u_1: <8d}        {cox: <8.1f}{coy: <8.2f}\n")
-        file.write("\n")
+        file.write("\n\n\n\n\n")
 
 
 #--3--- Запись GRID для баков окилителя с Xo+1000 по (Xo+o)+1000 узел
@@ -248,7 +248,7 @@ def bdf_list(request):
             cox = (u - 1001) * k
             file.write(f"GRID    {int(u): <8d}        {cox: <8.1f}\n")
             u += 1
-        file.write("\n")
+        file.write("\n\n\n\n\n")
 
 
 #--4--- Запись GRID для баков горючего с Xg+1000 по (Xg+g)+1000 узел
@@ -259,7 +259,7 @@ def bdf_list(request):
             cox = (u - 1001) * k
             file.write(f"GRID    {int(u): <8d}        {cox: <8.1f}\n")
             u += 1
-        file.write("\n\n")
+        file.write("\n\n\n\n\n")
 
 
 #--5--- Запись CBAR с 1 по N-1-й узел
@@ -268,7 +268,7 @@ def bdf_list(request):
         while u < N_rocket:
             u += 1
             file.write(f"CBAR    {int(u): <8d}{Np: <8d}{int(u): <8d}{u + 1: <8d}0.0     1.0     0.0\n")
-        file.write("\n\n")
+        file.write("\n\n\n\n\n")
 
 
 #--6--- Запись CBAR с 100001 по 10000N-1-й узел контейнера
@@ -278,53 +278,52 @@ def bdf_list(request):
             u += 1
             u = int(u)
             file.write(f"CBAR    {u + 100000: <8d}{Np: <8d}{u + 100000: <8d}{u + 100001: <8d}0.0     1.0     0.0\n")
-        file.write("\n\n")
+        file.write("\n\n\n\n\n")
 
 
-#--7--- Запись RBE2 для баков окислителя с Xo+1000 по (Xo+o)+1000 узел
+#--7.1--- Запись RBE2 для баков окислителя с Xo+1000 по (Xo+o)+1000 узел
         u = int(o1)
         while u < o + 1:
+            file.write(f"RBE2    {u + 1000: <8d}{u - 1000: <8d}2       {u: <8d}\n")
             u += 1
-            u = int(u)
-            file.write("RBE2    {: <8d}{: <8d}2       {: <8d}\n".format(u + 1000, u - 1000, u))
         file.write("\n")
 
-        file.write("RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(int(o1 + 2000), int(o1 - 1000), int(o1)))
+        file.write(f"RBE2    {int(o1 + 2000): <8d}{int(o1 - 1000): <8d}1       {int(o1): <8d}\n")
         
-        u = o1
+        u = int(o1)
         while u < o:
+            file.write(f"RBE2    {u + 2001: <8d}{u: <8d}1       {u + 1: <8d}\n")
             u += 1
-            u = int(u)
-            file.write("RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(u + 2001, u, u + 1))
-        file.write("\n")
+        file.write("\n\n\n\n\n")
 
 
-
-
-
-
-        # Запись RBE2 для баков горючего с Xg+1000 по (Xg+g)+1000 узел
+#--7.2--- Запись RBE2 для баков горючего с Xg+1000 по (Xg+g)+1000 узел
         u = int(g1)
         while u < g + 1:
+            file.write(f"RBE2    {u + 1000: <8d}{u - 1000: <8d}2       {u: <8d}\n")
             u += 1
-            u = int(u)
-            file.write(
-                "RBE2    {: <8d}{: <8d}2       {: <8d}\n".format(u + 1000, u - 1000, u)
-            )
-        file.write("\n\n")
-        file.write(
-            "RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(
-                int(g1 + 2000), int(g1 - 1000), int(g1)
-            )
-        )
-        u = g1
+        file.write("\n")
+
+        file.write(f"RBE2    {int(g1 + 2000): <8d}{int(g1 - 1000): <8d}1       {int(g1): <8d}\n")
+
+        u = int(g1)
         while u < g:
+            file.write(f"RBE2    {u + 2001: <8d}{u: <8d}1       {u + 1: <8d}\n")
             u += 1
-            u = int(u)
-            file.write(
-                "RBE2    {: <8d}{: <8d}1       {: <8d}\n".format(u + 2001, u, u + 1)
-            )
-        file.write("\n\n")
+        file.write("\n\n\n\n\n")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         # Запись CONM2 для бака окислителя
         # определение сосредоточенной массы узла бака окислителя
