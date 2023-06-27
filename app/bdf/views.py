@@ -469,145 +469,97 @@ def bdf_list(request):
 
 
 #--10--- Количество аморт.
+        bd.kolichestvo_amort = int(bd.kolichestvo_amort)
         def kolichestvo_amort_obsh():
+
             if bd.kolichestvo_amort == 2:
                 # Запись GRID узлы скольжения
 
                 a1 = bd.X1 / k  # узел первого амортизатора
                 a2 = bd.X2 / k  # узел второго амортизатора
 
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a1 + 200001, bd.X1, coy
-                    )
-                )
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a2 + 200001, bd.X2, coy
-                    )
-                )
+                a1 = int(a1)
+                a2 = int(a2)
+
+                file.write(f"GRID    {a1 + 200001: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 200001: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
+
                 file.write("\n\n")
 
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a1 + 200011, bd.X1, coy
-                    )
-                )
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a2 + 200011, bd.X2, coy
-                    )
-                )
-                file.write("\n\n")
+                file.write(f"GRID    {a1 + 200011: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 200011: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
 
                 coy_kont = coy * 2
 
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a1 + 300011, bd.X1, coy_kont
-                    )
-                )
-                file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
-                        a2 + 300011, bd.X2, coy_kont
-                    )
-                )
+                file.write("\n\n")
+
+                file.write(f"GRID    {a1 + 300011: <8d}        {bd.X1: <8.1f}{coy_kont: <8.1f}0.00\n")
+
+                file.write(f"GRID    {a2 + 300011: <8d}        {bd.X2: <8.1f}{coy_kont: <8.1f}0.00\n")
+
                 file.write("\n\n")
 
                 # Запись CELAS1 узлов скольжения
 
-                file.write(
-                    "CELAS1  {: <8.1f}2       {: <8.1f}2       {: <8.1f}2\n".format(
-                        a1 + 200001, a1 + 1, a1 + 200001
-                    )
-                )
-                file.write(
-                    "CELAS1  {: <8.1f}2       {: <8.1f}2       {: <8.1f}2\n".format(
-                        a2 + 200001, a2 + 1, a2 + 200001
-                    )
-                )
+                file.write(f"CELAS1  {a1 + 200001: <8.1f}2       {a1 + 1: <8.1f}2       {a1 + 200001: <8.1f}2\n")
+
+                file.write(f"CELAS1  {a2 + 200001: <8.1f}2       {a2 + 1: <8.1f}2       {a2 + 200001: <8.1f}2\n")
+
                 file.write("\n\n")
 
-                file.write(
-                    "CELAS1  {: <8.1f}2       {: <8.1f}2       {: <8.1f}2\n".format(
-                        a1 + 200011, a1 + 200011, a1 + 300011
-                    )
-                )
-                file.write(
-                    "CELAS1  {: <8.1f}2       {: <8.1f}2       {: <8.1f}2\n".format(
-                        a2 + 200011, a2 + 200011, a2 + 300011
-                    )
-                )
+                file.write(f"CELAS1  {a1 + 200011: <8.1f}2       {a1 + 200011: <8.1f}2       {a1 + 300011: <8.1f}2\n")
+
+                file.write(f"CELAS1  {a2 + 200011: <8.1f}2       {a2 + 200011: <8.1f}2       {a2 + 300011: <8.1f}2\n")
+
                 file.write("\n\n")
 
                 # Запись PELAS узлов скольжения (жесткость?)
 
-                file.write("PELAS   2       {: <8.1f}+6\n\n".format(bd.zhestkost_amort))
+                file.write(f"PELAS   2       {bd.zhestkost_amort: <8.1f}+6\n\n")
+
+                file.write("\n\n")
 
                 # Запись RBE2 узлов скольжения
 
                 i1 = 1
 
-                file.write(
-                    "RBE2    {: <8.1f}{: <8.1f} {: <8d}{: <8.1f}{: <8.1f}{: <8.1f}\n".format(
-                        a1 + 400001, a1 + 1, i1, a1 + 200001, a1 + 200011, a1 + 300011
-                    )
-                )
-                file.write(
-                    "RBE2    {: <8.1f}{: <8.1f} {: <8d}{: <8.1f}{: <8.1f}{: <8.1f}\n".format(
-                        a2 + 400001, a2 + 1, i1, a2 + 200001, a2 + 200011, a2 + 300011
-                    )
-                )
+                file.write(f"RBE2    {a1 + 400001: <8.1f}{a1 + 1: <8.1f} {i1: <8d}{a1 + 200001: <8.1f}{a1 + 200011: <8.1f}{a1 + 300011: <8.1f}\n")
+
+                file.write(f"RBE2    {a2 + 400001: <8.1f}{a2 + 1: <8.1f} {i1: <8d}{a2 + 200001: <8.1f}{a2 + 200011: <8.1f}{a2 + 300011: <8.1f}\n")
+
                 file.write("\n\n")
 
                 i2 = 2
 
-                file.write(
-                    "RBE2    {: <8.1f}{: <8.1f} {: <8d}{: <8.1f}\n".format(
-                        a1 + 400011, a1 + 1, i2, a1 + 300011
-                    )
-                )
-                file.write(
-                    "RBE2    {: <8.1f}{: <8.1f} {: <8d}{: <8.1f}\n".format(
-                        a2 + 400011, a2 + 1, i2, a2 + 300011
-                    )
-                )
+                file.write(f"RBE2    {a1 + 400011: <8.1f}{a1 + 1: <8.1f} {i2: <8d}{a1 + 300011: <8.1f}\n")
+
+                file.write(f"RBE2    {a2 + 400011: <8.1f}{a2 + 1: <8.1f} {i2: <8d}{a2 + 300011: <8.1f}\n")
+
                 file.write("\n\n")
 
                 # Запись BLSEG
 
-                file.write(
-                    "BLSEG   1       {: <8.1f}{: <8.1f}\n".format(a1 + 1, a1 + 200001)
-                )
-                file.write(
-                    "BLSEG   3       {: <8.1f}{: <8.1f}\n".format(a2 + 1, a2 + 200001)
-                )
-                file.write("\n")
+                file.write(f"BLSEG   1       {a1 + 1: <8.1f}{a1 + 200001: <8.1f}\n")
+                file.write(f"BLSEG   3       {a2 + 1: <8.1f}{a2 + 200001: <8.1f}\n")
 
-                file.write(
-                    "BLSEG   7       {: <8.1f}{: <8.1f}\n".format(a1 + 300011, a1 + 200011)
-                )
-                file.write(
-                    "BLSEG   8       {: <8.1f}{: <8.1f}\n".format(a2 + 300011, a2 + 200011)
-                )
+                file.write("\n\n")
+
+                file.write(f"BLSEG   7       {a1 + 300011: <8.1f}{a1 + 200011: <8.1f}\n")
+                file.write(f"BLSEG   8       {a2 + 300011: <8.1f}{a2 + 200011: <8.1f}\n")
+
                 file.write("\n\n")
 
                 # Запись BCONP
 
-                file.write(
-                    "BCONP   1       1       2               1.0     10      1       1\n"
-                )
-                file.write(
-                    "BCONP   2       3       2               1.0     10      1       1\n"
-                )
-                file.write("\n")
+                file.write("BCONP   1       1       2               1.0     10      1       1\n")
+                file.write("BCONP   2       3       2               1.0     10      1       1\n")
 
-                file.write(
-                    "BCONP   6       7       2               1.0     10      1       3\n"
-                )
-                file.write(
-                    "BCONP   7       8       2               1.0     10      1       3\n"
-                )
+                file.write("\n\n")
+
+                file.write("BCONP   6       7       2               1.0     10      1       3\n")
+                file.write("BCONP   7       8       2               1.0     10      1       3\n")
+
+                file.write("\n\n\n\n\n\n\n\n\n\n")
 
             elif bd.kolichestvo_amort == 3:
                 # Запись GRID узлы скольжения
@@ -894,7 +846,7 @@ def bdf_list(request):
                 a2 = bd.X2 / k  # узел второго амортизатора
 
                 file.write(
-                    "GRID    {: <8.1f}        {: <8f}{: <8.1f}0.00\n".format(
+                    "GRID    {: <8.1f}   gg     {: <8f}{: <8.1f}0.00\n".format(
                         a1 + 200001, bd.X1, coy
                     )
                 )

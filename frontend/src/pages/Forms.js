@@ -19,7 +19,7 @@ function Forms() {
   const [L_Kon, setL_Kon] = useState(25.0);
 
 // 3 ------------ 
-  const [kolichestvo_amort, setkolichestvo_amort] = useState(3);
+  const [kolichestvo_amort, setkolichestvo_amort] = useState(2);
   const [zhestkost_amort, setzhestkost_amort] = useState(567.4);
   const [X1, setX1] = useState(19.5);
   const [X2, setX2] = useState(8.4);
