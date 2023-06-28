@@ -932,7 +932,7 @@ def bdf_list(request):
 
 #--11--- Запись BLSEG
 
-        file.write("BLSEG   2       100001  THRU    {: <8.1f}".format(float(N_konteiner) + 100010))
+        file.write(f"BLSEG   2       100001  THRU    {int(N_konteiner) + 100000: <8d}")
         file.write("\n\n")
 
         # Запись BFRIC
@@ -947,36 +947,18 @@ def bdf_list(request):
 
         # Запись CORD2R
 
-        file.write(
-            "CORD2R  3               0.0     -1.1    0.0     0.0     -1.1    1.0\n        1.0     -1.1    0.0"
-        )
+        file.write("CORD2R  3               0.0     -1.1    0.0     0.0     -1.1    1.0\n        1.0     -1.1    0.0")
         file.write("\n\n")
 
-# --------------------------------- Запись TABLED1 (тяга)
+#--12------------------------------------ Запись TABLED1 (тяга)
 
-        file.write(
-            f"TABLED1 411\n        0.0     0.0     1.0     0.0     {bd.t_p1:<8.2e} {bd.P1:<8.2e} {bd.t_p2:<8.2e} {bd.P2:<8.2e}\n".replace(
-                "e", ""
-            )
-        )
+        file.write(f"TABLED1 411\n        0.0     0.0     1.0     0.0     {bd.t_p1:<8.2e} {bd.P1:<8.2e} {bd.t_p2:<8.2e} {bd.P2:<8.2e}\n".replace("e", ""))
 
-        file.write(
-            f"        {bd.t_p3:<8.2e} {bd.P3:<8.2e} {bd.t_p4:<8.2e} {bd.P4:<8.2e} {bd.t_p5:<8.2e} {bd.P5:<8.2e} {bd.t_p6:<8.2e} {bd.P6:<8.2e}\n".replace(
-                "e", ""
-            )
-        )
+        file.write(f"        {bd.t_p3:<8.2e} {bd.P3:<8.2e} {bd.t_p4:<8.2e} {bd.P4:<8.2e} {bd.t_p5:<8.2e} {bd.P5:<8.2e} {bd.t_p6:<8.2e} {bd.P6:<8.2e}\n".replace("e", ""))
 
-        file.write(
-            f"        {bd.t_p7:<8.2e} {bd.P7:<8.2e} {bd.t_p8:<8.2e} {bd.P8:<8.2e} {bd.t_p9:<8.2e} {bd.P9:<8.2e} {bd.t_p10:<8.2e} {bd.P10:<8.2e}\n".replace(
-                "e", ""
-            )
-        )
+        file.write(f"        {bd.t_p7:<8.2e} {bd.P7:<8.2e} {bd.t_p8:<8.2e} {bd.P8:<8.2e} {bd.t_p9:<8.2e} {bd.P9:<8.2e} {bd.t_p10:<8.2e} {bd.P10:<8.2e}\n".replace("e", ""))
 
-        file.write(
-            f"        {bd.t_p11:<8.2e} {bd.P11:<8.2e} {bd.t_p12:<8.2e} {bd.P12:<8.2e} {bd.t_p13:<8.2e} {bd.P13:<8.2e}ENDT\n".replace(
-                "e", ""
-            )
-        )
+        file.write(f"        {bd.t_p11:<8.2e} {bd.P11:<8.2e} {bd.t_p12:<8.2e} {bd.P12:<8.2e} {bd.t_p13:<8.2e} {bd.P13:<8.2e}ENDT\n".replace("e", ""))
 
         file.write("\n\n")
 
@@ -1010,31 +992,17 @@ def bdf_list(request):
         massa_korpusa = bd.m - bd.m_gch - bd.m_cy - bd.m_dy_1 - bd.mo_1 - bd.mg_1
         plotnost1 = massa_korpusa / (((3.14 * bd.d0 * bd.d0 / 4) - (3.14 * (bd.d0 - tol_R) * (bd.d0 - tol_R) / 4))* bd.L)
 
-        file.write(
-            "MAT1    1       {: <2.1f}+10          {: <8.2f}{: <8.1f}\n".format(
-                bd.modul_unga1, bd.koeff_puass1, plotnost1
-            )
-        )
-        file.write(
-            "MAT1    2       {: <2.1f}+10          {: <8.2f}{: <8.3f}".format(
-                bd.modul_unga2, bd.koeff_puass2, bd.plotnost2
-            )
-        )
+        file.write(f"MAT1    1       {bd.modul_unga1:<8.2e}         {bd.koeff_puass1: <8.1f}{plotnost1: <8.1f}\n".replace("e", ""))
+
+        file.write(f"MAT1    2       {bd.modul_unga2:<8.2e}         {bd.koeff_puass2: <8.1f}{bd.plotnost2: <8.1f}".replace("e", ""))
         file.write("\n\n")
 
         # Запись PBARL
 
-        file.write(
-            f"PBARL   1       1               TUBE2\n        {(float(bd.d0) / 2):<8.2e} {float(tol_R):<8.2e}".replace(
-                "e", ""
-            )
-        )
+        file.write(f"PBARL   1       1               TUBE2\n        {(float(bd.d0) / 2):<8.2e} {float(tol_R):<8.2e}".replace("e", ""))
         file.write("\n")
-        file.write(
-            f"PBARL   2       2               TUBE2\n        {(float(d0_Kon) / 2):<8.2e} {float(tol_Kon):<8.2e}".replace(
-                "e", ""
-            )
-        )
+
+        file.write(f"PBARL   2       2               TUBE2\n        {(float(d0_Kon) / 2):<8.2e} {float(tol_Kon):<8.2e}".replace("e", ""))
         file.write("\n\n")
 
         # Запись LSEQ для ускорения свободного падения
@@ -1057,27 +1025,34 @@ def bdf_list(request):
         file.write("TABLED1 511\n        0.0     1.0     30.0    1.0     ENDT")
         file.write("\n\n")
 
-        # Запись GRID для продольной амортизации контейнера
+        # Новый кусок кода
 
-        file.write(
-            "GRID    9000            0.0     {: <8.3f}0.0".format((bd.d0 / 2) + 0.1)
-        )
+        file.write("GRID       500001           0.00    0.00    0.00\n")
+        file.write("GRID       500002           0.00   -1.00    0.00")
         file.write("\n\n")
 
-        # Запись PELAS
-
-        file.write("PELAS   9000    658.6+6")
+        file.write("CBAR       500001      1   100001  500001   1.00    0.00    0.00\n")
+        file.write("CBAR       500002      1   500001  500002   1.00    0.00    0.00")
         file.write("\n\n")
 
-        # Запись CELAS1
-
-        file.write("CELAS1  9000    9000    100001  1       9000    1")
+        file.write("BCONP   1       888     777             1.00    700     1       9999")
         file.write("\n\n")
 
-        # Запись SPC для опорного стола
-
-        file.write("SPC     10      9000    123456\n")
+        file.write("BLSEG   888     2       1\n")
+        file.write("BLSEG   777     100001  500001  500002")
         file.write("\n\n")
+
+        file.write("BFRIC   700                     0.001  ")
+        file.write("\n\n")
+
+        file.write("CORD2R  9999            0.0     0.0     0.0     0.0     0.0     1.0\n")
+        file.write("        -1.0    0.0     0.0 ")
+        file.write("\n\n")
+
+        file.write("SPC           10   500001 13456\n")
+        file.write("SPC           10   500002 13456")
+        file.write("\n\n")
+
 
         # Запись TSTEPNL
 
@@ -1085,9 +1060,7 @@ def bdf_list(request):
         t_shoda = bd.t / n_time  # время схода поясов амортизации
 
         file.write("TSTEPNL 1       10      0.1     1       ADAPT\n")
-        file.write(
-            "TSTEPNL 2       {: <8.0f}{: <8.3f}1       ADAPT\n".format(t_shoda, n_time)
-        )
+        file.write(f"TSTEPNL 2       {t_shoda: <8.0f}{n_time: <8.3f}1       ADAPT\n")
         file.write("\n\n")
 
         file.write("ENDDATA")
