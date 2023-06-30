@@ -400,212 +400,117 @@ function Forms() {
           <p className="pb-3 pl-5 text-2xl">3 Геометрические характеристики</p>
 
           {/* 3.1 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.1 Количество опорно-ведущих поясов (ОВП)
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={kolichestvo_amort}
-              onChange={(e) => setkolichestvo_amort(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="1"
-            />
-            <Tool text="Введите число от 1 до 5"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.1 Количество опорно-ведущих поясов (ОВП)"
+            value={kolichestvo_amort}
+            onChange={(e) => setkolichestvo_amort(e.target.value)}
+            placeholder="1"
+            toolTipText="Введите число от 1 до 5"
+          />
 
           {/* 3.2 */}
-          <p className="pb-3 pl-5 text-xl">3.2 Жесткость ОВП</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={zhestkost_amort}
-              onChange={(e) => setzhestkost_amort(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="567.4"
-            />
-            <Tool text="МН/м (с точностью до десятых)"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.2 Жесткость ОВП"
+            value={zhestkost_amort}
+            onChange={(e) => setzhestkost_amort(e.target.value)}
+            placeholder="567.4"
+            toolTipText="МН/м (с точностью до десятых)"
+          />
 
           {/* 3.3.1 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.3.1 Расстояние: от нижнего края ракеты до верхнего (первого) пояса
-            амортизации
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={X1}
-              onChange={(e) => setX1(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="10.5"
-            />
-            <Tool text="в м с точностью до десятых"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.3.1 Расстояние: от нижнего края ракеты до верхнего (первого) пояса амортизации"
+            value={X1}
+            onChange={(e) => setX1(e.target.value)}
+            placeholder="10.5"
+            toolTipText="в м с точностью до десятых"
+          />
 
           {/* 3.3.2 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.3.2 Расстояние: от нижнего края ракеты до второго пояса
-            амортизации
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={X2}
-              onChange={(e) => setX2(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="8.4"
-            />
-            <Tool text="в м с точностью до десятых"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.3.2 Расстояние: от нижнего края ракеты до второго пояса амортизации"
+            value={X2}
+            onChange={(e) => setX2(e.target.value)}
+            placeholder="8.4"
+            toolTipText="в м с точностью до десятых"
+          />
 
           {/* 3.3.3 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.3.3 Расстояние: от нижнего края ракеты до третьего пояса
-            амортизации
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={X3}
-              onChange={(e) => setX3(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="6.9"
-            />
-            <Tool text="в м с точностью до десятых"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.3.3 Расстояние: от нижнего края ракеты до третьего пояса амортизации"
+            value={X3}
+            onChange={(e) => setX3(e.target.value)}
+            placeholder="6.9"
+            toolTipText="в м с точностью до десятых"
+          />
 
           {/* 3.3.4 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.3.4 Расстояние: от нижнего края ракеты до четвертого пояса
-            амортизации
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={X4}
-              onChange={(e) => setX4(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="5.1"
-            />
-            <Tool text="в м с точностью до десятых"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="3.3.4 Расстояние: от нижнего края ракеты до четвертого пояса амортизации"
+            value={X4}
+            onChange={(e) => setX4(e.target.value)}
+            placeholder="5.1"
+            toolTipText="в м с точностью до десятых"
+          />
 
           {/* 3.3.5 */}
-          <p className="pb-3 pl-5 text-xl">
-            3.3.5 Расстояние: от нижнего края ракеты до пятого пояса амортизации
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={X5}
-              onChange={(e) => setX5(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="3.7"
-            />
-            <Tool text="в м с точностью до десятых"></Tool>
-          </div>
+          <InputField
+            label="3.3.5 Расстояние: от нижнего края ракеты до пятого пояса амортизации"
+            value={X5}
+            onChange={(e) => setX5(e.target.value)}
+            placeholder="3.7"
+            toolTipText="в м с точностью до десятых"
+          />
 
           <br></br>
           <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
 
-          {/* 4 ------------------------------------------------------------------ */}
-
+{/* 4 ------------------------------------------------------------------ */}
           <p className="pb-3 pl-5 text-2xl">4 Граничные и начальные условия</p>
-          {/* ------------------------------------------------------------------ */}
-          {/* 4.1 */}
-          <p className="pb-3 pl-5 text-xl">
-            4.1 Скорость бокового набегающего потока
-          </p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={V_sredy}
-              onChange={(e) => setV_sredy(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="32.4"
-            />
-            <Tool text="м/с"></Tool>
-          </div>
 
-          <br></br>
-          <br></br>
+          {/* 4.1 */}
+          <InputField
+            label="4.1 Скорость бокового набегающего потока"
+            value={V_sredy}
+            onChange={(e) => setV_sredy(e.target.value)}
+            placeholder="32.4"
+            toolTipText="м/с"
+          />
 
           {/* 4.2 */}
-          <p className="pb-3 pl-5 text-xl">
-            4.2 Задание тяги двигателя (Н) в зависимости от времени (с)
-          </p>
-          <p className="pb-3 pl-5 text-xl">Время 1 точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={t_p1}
-              onChange={(e) => sett_p1(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="0.11"
-            />
-            <Tool text="м/с"></Tool>
-          </div>
+          <p className="pb-3 pl-5 text-xl">4.2 Задание тяги двигателя (Н) в зависимости от времени (с)</p>
 
-          <br></br>
+          <InputField
+            label="Время 1 точки"
+            value={t_p1}
+            onChange={(e) => sett_p1(e.target.value)}
+            placeholder="0.11"
+            toolTipText="м/с"
+          />
 
-          <p className="pb-3 pl-5 text-xl">Тяга 1 точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={P1}
-              onChange={(e) => setP1(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="3676743"
-            />
-            <Tool text="Н"></Tool>
-          </div>
+          <InputField
+            label="Тяга 1 точки"
+            value={P1}
+            onChange={(e) => setP1(e.target.value)}
+            placeholder="3676743"
+            toolTipText="Н"
+          />
 
-          <br></br>
+          <InputField
+            label="Время 2 точки"
+            value={t_p2}
+            onChange={(e) => sett_p2(e.target.value)}
+            placeholder="0.25"
+            toolTipText="м/с"
+          />
 
-          <p className="pb-3 pl-5 text-xl">Время 2 точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={t_p2}
-              onChange={(e) => sett_p2(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="0.25"
-            />
-            <Tool text="м/с"></Tool>
-          </div>
-
-          <br></br>
-
-          <p className="pb-3 pl-5 text-xl">Тяга 2 точки</p>
-          <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
-            <input
-              value={P2}
-              onChange={(e) => setP2(e.target.value)}
-              type="text"
-              className="w-full py-2 rounded-xl bg-slate-700 text-white outline-none"
-              placeholder="6120857"
-            />
-            <Tool text="Н"></Tool>
-          </div>
-
-          <br></br>
+          <InputField
+            label="Тяга 2 точки"
+            value={P2}
+            onChange={(e) => setP2(e.target.value)}
+            placeholder="6120857"
+            toolTipText="Н"
+          />
 
           <p className="pb-3 pl-5 text-xl">Время 3 точки</p>
           <div className="flex items-center justify-between bg-slate-700 rounded-3xl px-5 ">
