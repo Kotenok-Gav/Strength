@@ -481,21 +481,21 @@ def bdf_list(request):
                 a1 = int(a1)
                 a2 = int(a2)
 
-                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
 
                 coy_kont = coy * 2
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
@@ -571,25 +571,25 @@ def bdf_list(request):
                 a2 = int(a2)
                 a3 = int(a3)
 
-                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
 
                 coy_kont = coy * 2
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
@@ -678,29 +678,29 @@ def bdf_list(request):
                 a3 = int(a3)
                 a4 = int(a4)
 
-                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a4 + 200000: <8d}        {bd.X4: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a4 + 200000: <8d}        {bd.X4: <8.1f}{coy: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a4 + 200010: <8d}        {bd.X4: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a4 + 200010: <8d}        {bd.X4: <8.1f}{coy: <8.2f}0.00\n")
 
                 coy_kont = coy * 2
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a4 + 300010: <8d}        {bd.X4: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a4 + 300010: <8d}        {bd.X4: <8.1f}{coy_kont: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
@@ -802,33 +802,33 @@ def bdf_list(request):
                 a4 = int(a4)
                 a5 = int(a5)
 
-                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a4 + 200000: <8d}        {bd.X4: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a5 + 200000: <8d}        {bd.X5: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200000: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200000: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200000: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a4 + 200000: <8d}        {bd.X4: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a5 + 200000: <8d}        {bd.X5: <8.1f}{coy: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a4 + 200010: <8d}        {bd.X4: <8.1f}{coy: <8.1f}0.00\n")
-                file.write(f"GRID    {a5 + 200010: <8d}        {bd.X5: <8.1f}{coy: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 200010: <8d}        {bd.X1: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a2 + 200010: <8d}        {bd.X2: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a3 + 200010: <8d}        {bd.X3: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a4 + 200010: <8d}        {bd.X4: <8.1f}{coy: <8.2f}0.00\n")
+                file.write(f"GRID    {a5 + 200010: <8d}        {bd.X5: <8.1f}{coy: <8.2f}0.00\n")
 
                 coy_kont = coy * 2
 
                 file.write("\n\n")
 
-                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a1 + 300010: <8d}        {bd.X1: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a2 + 300010: <8d}        {bd.X2: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a3 + 300010: <8d}        {bd.X3: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a4 + 300010: <8d}        {bd.X4: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a4 + 300010: <8d}        {bd.X4: <8.1f}{coy_kont: <8.2f}0.00\n")
 
-                file.write(f"GRID    {a5 + 300010: <8d}        {bd.X5: <8.1f}{coy_kont: <8.1f}0.00\n")
+                file.write(f"GRID    {a5 + 300010: <8d}        {bd.X5: <8.1f}{coy_kont: <8.2f}0.00\n")
 
                 file.write("\n\n")
 
@@ -952,13 +952,13 @@ def bdf_list(request):
 
 #--12------------------------------------ Запись TABLED1 (тяга)
 
-        file.write(f"TABLED1 411\n        0.0     0.0     1.0     0.0     {bd.t_p1:<8.2e} {bd.P1:<8.2e} {bd.t_p2:<8.2e} {bd.P2:<8.2e}\n".replace("e", ""))
+        file.write(f"TABLED1 411\n        0.0     0.0     1.0     0.0     {bd.t_p1 + 1:<8.2f}{bd.P1:<8.2e} {bd.t_p2 + 1:<8.2f}{bd.P2:<8.2e}\n".replace("e", ""))
 
-        file.write(f"        {bd.t_p3:<8.2e} {bd.P3:<8.2e} {bd.t_p4:<8.2e} {bd.P4:<8.2e} {bd.t_p5:<8.2e} {bd.P5:<8.2e} {bd.t_p6:<8.2e} {bd.P6:<8.2e}\n".replace("e", ""))
+        file.write(f"        {bd.t_p3 + 1:<8.2f}{bd.P3:<8.2e} {bd.t_p4 + 1:<8.2f}{bd.P4:<8.2e} {bd.t_p5 + 1:<8.2f}{bd.P5:<8.2e} {bd.t_p6 + 1:<8.2f}{bd.P6:<8.2e}\n".replace("e", ""))
 
-        file.write(f"        {bd.t_p7:<8.2e} {bd.P7:<8.2e} {bd.t_p8:<8.2e} {bd.P8:<8.2e} {bd.t_p9:<8.2e} {bd.P9:<8.2e} {bd.t_p10:<8.2e} {bd.P10:<8.2e}\n".replace("e", ""))
+        file.write(f"        {bd.t_p7 + 1:<8.2f}{bd.P7:<8.2e} {bd.t_p8 + 1:<8.2f}{bd.P8:<8.2e} {bd.t_p9 + 1:<8.2f}{bd.P9:<8.2e} {bd.t_p10 + 1:<8.2f}{bd.P10:<8.2e}\n".replace("e", ""))
 
-        file.write(f"        {bd.t_p11:<8.2e} {bd.P11:<8.2e} {bd.t_p12:<8.2e} {bd.P12:<8.2e} {bd.t_p13:<8.2e} {bd.P13:<8.2e}ENDT\n".replace("e", ""))
+        file.write(f"        {bd.t_p11 + 1:<8.2f}{bd.P11:<8.2e} {bd.t_p12 + 1:<8.2f}{bd.P12:<8.2e} {bd.t_p13 + 1:<8.2f}{bd.P13:<8.2e} ENDT\n".replace("e", ""))
 
         file.write("\n\n")
 
@@ -999,10 +999,10 @@ def bdf_list(request):
 
         # Запись PBARL
 
-        file.write(f"PBARL   1       1               TUBE2\n        {(float(bd.d0) / 2):<8.2e} {float(tol_R):<8.2e}".replace("e", ""))
+        file.write(f"PBARL   1       1               TUBE2\n        {(float(bd.d0) / 2):<7.2f} {float(tol_R):<8.2e}".replace("e", ""))
         file.write("\n")
 
-        file.write(f"PBARL   2       2               TUBE2\n        {(float(d0_Kon) / 2):<8.2e} {float(tol_Kon):<8.2e}".replace("e", ""))
+        file.write(f"PBARL   2       2               TUBE2\n        {(float(d0_Kon) / 2):<7.2f} {float(tol_Kon):<8.2e}".replace("e", ""))
         file.write("\n\n")
 
         # Запись LSEQ для ускорения свободного падения
@@ -1027,30 +1027,30 @@ def bdf_list(request):
 
         # Новый кусок кода
 
-        file.write("GRID       500001           0.00    0.00    0.00\n")
-        file.write("GRID       500002           0.00   -1.00    0.00")
+        file.write("GRID    500001          0.00    0.00    0.00\n")
+        file.write("GRID    500002          0.00    -1.00   0.00")
         file.write("\n\n")
 
-        file.write("CBAR       500001      1   100001  500001   1.00    0.00    0.00\n")
-        file.write("CBAR       500002      1   500001  500002   1.00    0.00    0.00")
+        file.write("CBAR    500001  1       100001  500001  1.00    0.00    0.00\n")
+        file.write("CBAR    500002  1       500001  500002  1.00    0.00    0.00")
         file.write("\n\n")
 
-        file.write("BCONP   1       888     777             1.00    700     1       9999")
+        file.write("BCONP   10      888     777             1.00    700     1       9999")
         file.write("\n\n")
 
         file.write("BLSEG   888     2       1\n")
         file.write("BLSEG   777     100001  500001  500002")
         file.write("\n\n")
 
-        file.write("BFRIC   700                     0.001  ")
+        file.write("BFRIC   700                     0.001")
         file.write("\n\n")
 
         file.write("CORD2R  9999            0.0     0.0     0.0     0.0     0.0     1.0\n")
         file.write("        -1.0    0.0     0.0 ")
         file.write("\n\n")
 
-        file.write("SPC           10   500001 13456\n")
-        file.write("SPC           10   500002 13456")
+        file.write("SPC     10      500001  13456\n")
+        file.write("SPC     10      500002  13456")
         file.write("\n\n")
 
 
