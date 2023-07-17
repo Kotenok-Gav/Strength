@@ -11,6 +11,7 @@ from django.views import View
 import os
 from django.http import FileResponse
 from rest_framework.views import APIView
+import subprocess
 
 
 def home(request):
@@ -192,7 +193,7 @@ def bdf_list(request):
 
 #-------Начало формирования BDF файла---------------------------------------------------------
 
-        file = open("1.txt", "w")
+        file = open("1.bdf", "w")
 
         file.write("NASTRAN SYSTEM(151)=1\nNASTRAN BUFFSIZE=65537\n\nID START\nTIME	300\nSOL	129\nDIAG	8,50\nCEND\necho=both\n\n")
 
@@ -1071,7 +1072,30 @@ def bdf_list(request):
         return Response(serializer.data, status=HTTP_200_OK)
 
 
+#Скачивание файла
 def download_file(request):
-    # Укажите путь к вашему файлу 1.txt
-    file_path = "/home/ilya/Рабочая/Strength/app/1.txt"
-    return FileResponse(open(file_path, "rb"), as_attachment=True, filename="1.txt")
+    # Укажите путь к вашему файлу 1.bdf
+    file_path = "C:/prod/Strength/app/1.bdf"
+    return FileResponse(open(file_path, "rb"), as_attachment=True, filename="1.bdf")
+
+
+
+#Запуск файла на расчет
+def run_msc_nastran(request):
+    #C:\pot>nast20231.exe 1.bdf (оригинальная команда в cmd)
+
+    # Путь к директории с файлом
+    directory = "C:/prod/Strength/app"
+
+    # Команда для перехода в директорию
+    change_directory_cmd = f"cd /d {directory}"
+
+    # Команда для запуска программы с аргументом
+    run_program_cmd = "nast20231.exe 1.bdf"
+
+    # Формирование итоговой команды
+    final_command = f"{change_directory_cmd} && {run_program_cmd}"
+
+    # Запуск команды в командной строке
+    subprocess.call(final_command, shell=True)
+

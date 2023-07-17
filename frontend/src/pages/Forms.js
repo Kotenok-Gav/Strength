@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Tool from "../components/Input_forms/input/Tooltip";
 import InputField from "../components/Input_forms/input_forms";
 
 function Forms() {
@@ -103,7 +102,7 @@ function Forms() {
       // Создаем временную ссылку и автоматически запускаем скачивание
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "1.txt");
+      link.setAttribute("download", "1.bdf");
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -111,6 +110,13 @@ function Forms() {
       console.error("Ошибка при скачивании файла:", error);
     }
   };
+
+
+
+  // Запуск на расчет
+  const run_msc_nastran = () => {
+    axios.get('http://localhost:8000/run_msc_nastran/')
+}
 
 
   const addBdfHandler = () => {
@@ -956,6 +962,14 @@ function Forms() {
             className="p-5 rounded-3xl bg-slate-700  hover:bg-sky-700 text-xl mx-60 mt-20"
           >
             Скачать
+          </button>
+
+
+          <button
+            onClick={run_msc_nastran}
+            className="p-5 rounded-3xl bg-slate-700  hover:bg-sky-700 text-xl mx-60 mt-20"
+          >
+            Рассчитать 
           </button>
 
 {/*  вывод всех данных в форме
