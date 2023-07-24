@@ -79,6 +79,12 @@ body {
 	max-width: 1200px;
 }
 
+
+.two-window {
+	display: flex;
+	justify-content: space-around;
+}
+
 .none {
 	display: none !important;
 }
