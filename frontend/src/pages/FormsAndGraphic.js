@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import {useState } from "react";
 import axios from "axios";
 import InputField from "../components/Input_forms/input_forms";
+//import Graph from '../components/graphTimeTyga/GraphTimeTyga';
+
 
 function FormsAndGraphic() {
-  const [bdf, setBdf] = useState([]);
 
   // 1 ------------
   const [text, setText] = useState("Ангара");
@@ -89,36 +90,7 @@ function FormsAndGraphic() {
   const [plotnost2, setplotnost2] = useState(2000);
 
 
-  // Ссылка на скачивание BDF
-  const handleDownload = async () => {
-    try {
-      const response = await axios.get("http://127.0.0.1:8000/download/", {
-        responseType: "blob", // Указываем, что ожидаем получить blob-объект в ответе
-      });
-
-      // Создаем ссылку для скачивания файла
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-
-      // Создаем временную ссылку и автоматически запускаем скачивание
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "1.bdf");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Ошибка при скачивании файла:", error);
-    }
-  };
-
-
-
-  // Запуск на расчет
-  const run_msc_nastran = () => {
-    axios.get('http://localhost:8000/run_msc_nastran/')
-}
-
-
+  // Отправка данных на бэк POST запросом
   const addBdfHandler = () => {
     const postBdf = async () => {
       const postBdfdata = {
@@ -206,110 +178,101 @@ function FormsAndGraphic() {
         plotnost2: plotnost2,
       };
 
-
-      const { data } = await axios.post(
-        "http://127.0.0.1:8000/bdf/",
-        postBdfdata
-      );
-      setBdf([...bdf, data]);
-
-      // 1 ------------
-      setText("");
-      setStart_rocket("");
-      sett("");
-
-      // 2 ------------
-      setd0("");
-      settol_R("");
-      setL("");
-      setd0_Kon("");
-      settol_Kon("");
-      setL_Kon("");
-
-      // 3 ------------
-      setkolichestvo_amort("");
-      setzhestkost_amort("");
-      setX1("");
-      setX2("");
-      setX3("");
-      setX4("");
-      setX5("");
-
-      // 4 ------------
-      setV_sredy("");
-      sett_p1("");
-      setP1("");
-      sett_p2("");
-      setP2("");
-      sett_p3("");
-      setP3("");
-      sett_p4("");
-      setP4("");
-      sett_p5("");
-      setP5("");
-      sett_p6("");
-      setP6("");
-      sett_p7("");
-      setP7("");
-      sett_p8("");
-      setP8("");
-      sett_p9("");
-      setP9("");
-      sett_p10("");
-      setP10("");
-      sett_p11("");
-      setP11("");
-      sett_p12("");
-      setP12("");
-      sett_p13("");
-      setP13("");
-
-      // 5 ------------
-      setm("");
-      setm_gch("");
-      setX_gch("");
-      setm_cy("");
-      setX_cy("");
-      setm_dy_1("");
-      setX_dy_1("");
-      setmo_1("");
-      setLo_1("");
-      setXo_1("");
-      setmg_1("");
-      setLg_1("");
-      setXg_1("");
-      setL_kon_zakr_1("");
-      settip_zakr_1("");
-      setL_kon_zakr_2("");
-      settip_zakr_2("");
-      setL_kon_zakr_3("");
-      settip_zakr_3("");
-      setL_kon_zakr_4("");
-      settip_zakr_4("");
-      setL_kon_zakr_5("");
-      settip_zakr_5("");
-
-      // 6 ------------
-      setmodul_unga1("");
-      setkoeff_puass1("");
-      setmodul_unga2("");
-      setkoeff_puass2("");
-      setplotnost2("");
+      axios.post("http://127.0.0.1:8000/bdf/", postBdfdata);
     };
     postBdf();
   };
 
 
-  useEffect(() => {
-    const fetchBdf = async () => {
-      const { data } = await axios.get("http://127.0.0.1:8000/bdf/");
-      setBdf(data);
+  // Скачивание BDF
+  const handleDownload = async () => {
+    try {
+      const response = await axios.get("http://127.0.0.1:8000/download/", {
+        responseType: "blob", // Указываем, что ожидаем получить blob-объект в ответе
+      });
+
+      // Создаем ссылку для скачивания файла
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+
+      // Создаем временную ссылку и автоматически запускаем скачивание
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "1.bdf");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Ошибка при скачивании файла:", error);
+    }
+  };
+
+
+  // Запуск на расчет
+  const run_msc_nastran = () => {
+    axios.get('http://localhost:8000/run_msc_nastran/')
+}
+
+
+    // Создание графической ракеты
+    const Cube = () => {
+      return (
+        <div
+          style={{
+            width: '50px',
+            height: '50px',
+            backgroundColor: 'blue',
+            margin: '10px',
+          }}
+        />
+      );
     };
-    fetchBdf();
-  }, []);
 
+    const handleNumCubesChange = (event) => {
+      setStart_rocket(Number(event.target.value));
+    };
+    const renderCubes = () => {
+      const cubes = [];
+      for (let i = 0; i < start_rocket; i++) {
+        cubes.push(<Cube key={i} />);
+      }
+      return cubes;
+    };
+  
 
-
+    {/*// Создание графика
+  
+    const t_p1_1 = 1
+    const t_p2_2 = 2
+    const t_p3_3 = 3
+    const t_p4_4 = 4
+    const t_p5_5 = 5
+    const t_p6_6 = 6
+    const t_p7_7 = 7
+    const t_p8_8 = 8
+    const t_p9_9 = 9
+    const t_p10_10 = 10
+    const t_p11_11 = 11
+    const t_p12_12 = 12
+    const t_p13_13 = 13
+  
+    const P1_1 = 1
+    const P2_2 = 2
+    const P3_3 = 3
+    const P4_4 = 4
+    const P5_5 = 5
+    const P6_6 = 6
+    const P7_7 = 7
+    const P8_8 = 8
+    const P9_9 = 9
+    const P10_10 = 10
+    const P11_11 = 11
+    const P12_12 = 12
+    const P13_13 = 13
+  
+    const dataX = [t_p1_1, t_p2_2, t_p3_3, t_p4_4, t_p5_5, t_p6_6, t_p7_7, t_p8_8, t_p9_9, t_p10_10, t_p11_11, t_p12_12, t_p13_13];
+    const dataY = [P1_1, P2_2, P3_3, P4_4, P5_5, P6_6, P7_7, P8_8, P9_9, P10_10, P11_11, P12_12, P13_13];
+  
+    console.log(dataX, dataY)*/}
 
 
   return (
@@ -976,23 +939,24 @@ function FormsAndGraphic() {
               Рассчитать 
             </button>
 
-  {/*  вывод всех данных в форме
-            <div className="mt-5 flex flex-col space-y-5 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-10 lg:grid-cols-3">
-              {bdf?.map((bdf, index) => (
-                <div
-                  key={bdf.id}
-                  className="max-w-md mx-auto w-full p-5 h-full rounded-xl bg-blue-500 flex items-center justify-between"
-                >
-                  <p>{bdf.text}</p>
-                </div>
-              ))}
-            </div>
-  */}
 
 
           </div>
           <div className="w-1/2 p-10">
-
+            <div>
+              <input
+                type="number"
+                value={start_rocket}
+                onChange={handleNumCubesChange}
+                min="1"
+                max="10"
+              />
+              <div style={{ display: 'flex', flexDirection: 'column' }}>{renderCubes()}</div>
+            </div>
+            <div>
+              <h1>График на основе двух массивов</h1>
+              {/*<Graph dataX={dataX} dataY={dataY} />*/}
+            </div>
           </div>
         </div>
       </div>
