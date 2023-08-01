@@ -1,8 +1,8 @@
-import React from "react";
+import { useState } from "react";
 import "./style.css";
 
 const Tool = ({ text, children }) => {
-  const [showTooltip, setShowTooltip] = React.useState(false);
+  const [showTooltip, setShowTooltip] = useState(false);
 
   const handleMouseEnter = () => {
     setShowTooltip(true);

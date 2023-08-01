@@ -58,16 +58,6 @@ const Navbar = () => {
 								Forms
 							</NavLink>
 						</li>
-						<li className="nav-list__item">
-							<NavLink
-								to="/forms_and_graphic"
-								className={({ isActive }) =>
-									isActive ? activeLink : normalLink
-								}
-							>
-								Forms and graphic
-							</NavLink>
-						</li>
 					</ul>
 				</div>
 			</div>
