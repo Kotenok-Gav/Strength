@@ -85,6 +85,14 @@ body {
 	justify-content: space-around;
 }
 
+
+/* Фиксируем правую часть экрана от скрола */
+.fixed {
+	flex: 0 0 auto;
+	width: 400px; /* Ширина фиксированной правой части */
+	/* Добавьте стили для фиксированной части */
+  }
+
 .none {
 	display: none !important;
 }

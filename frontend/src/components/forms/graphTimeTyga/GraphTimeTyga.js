@@ -1,20 +1,46 @@
 import React from 'react';
-import { Canvas } from 'react-three-fiber';
+import { Line } from 'react-chartjs-2';
+
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+} from 'chart.js';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+);
 
 const Graph = ({ dataX, dataY }) => {
-  return (
-    <Canvas>
-      <ambientLight />
-      <pointLight position={[10, 10, 10]} />
-      <axesHelper args={[5]} />
-      {dataX.map((x, index) => (
-        <mesh key={index} position={[x * 0.1, dataY[index] * 0.1, 0]}>
-          <sphereGeometry args={[0.1, 16, 16]} />
-          <meshStandardMaterial color="red" />
-        </mesh>
-      ))}
-    </Canvas>
-  );
+    const data = {
+        labels: dataX,
+        datasets: [
+            {
+                label: 'Примерный набор данных',
+                data: dataY,
+                fill: false,
+                borderColor: 'rgb(75, 192, 192)',
+                tension: 0.3,
+            },
+        ],
+    };
+
+    return (
+        <div>
+            <Line data={data} />
+        </div>
+    );
 };
 
 export default Graph;

@@ -2,7 +2,7 @@ import {useState} from "react";
 import axios from "axios";
 import InputField from "../components/forms/Input_forms/input_forms";
 import renderCubes from "../components/forms/createRocket/createRocket";
-{/*import Graph from '../components/forms/graphTimeTyga/GraphTimeTyga';*/}
+import Graph from '../components/forms/graphTimeTyga/GraphTimeTyga';
 
 
 const Forms = () => {
@@ -218,42 +218,11 @@ const Forms = () => {
 
 
   // График тяги от времени
-{/*
-    // Создание графика
-  
-    const t_p1_1 = 1
-    const t_p2_2 = 2
-    const t_p3_3 = 3
-    const t_p4_4 = 4
-    const t_p5_5 = 5
-    const t_p6_6 = 6
-    const t_p7_7 = 7
-    const t_p8_8 = 8
-    const t_p9_9 = 9
-    const t_p10_10 = 10
-    const t_p11_11 = 11
-    const t_p12_12 = 12
-    const t_p13_13 = 13
-  
-    const P1_1 = 1
-    const P2_2 = 2
-    const P3_3 = 3
-    const P4_4 = 4
-    const P5_5 = 5
-    const P6_6 = 6
-    const P7_7 = 7
-    const P8_8 = 8
-    const P9_9 = 9
-    const P10_10 = 10
-    const P11_11 = 11
-    const P12_12 = 12
-    const P13_13 = 13
-  
-    const dataX = [t_p1_1, t_p2_2, t_p3_3, t_p4_4, t_p5_5, t_p6_6, t_p7_7, t_p8_8, t_p9_9, t_p10_10, t_p11_11, t_p12_12, t_p13_13];
-    const dataY = [P1_1, P2_2, P3_3, P4_4, P5_5, P6_6, P7_7, P8_8, P9_9, P10_10, P11_11, P12_12, P13_13];
-  
-    console.log(dataX, dataY)
-*/}
+  const dataX = [t_p1, t_p2, t_p3, t_p4, t_p5, t_p6, t_p7, t_p8, t_p9, t_p10, t_p11, t_p12, t_p13];
+  const dataY = [P1, P2, P3, P4, P5, P6, P7, P8, P9, P10, P11, P12, P13];
+
+  const graph = <Graph dataX={dataX} dataY={dataY}  />;
+
 
 
   return (
@@ -924,13 +893,15 @@ const Forms = () => {
 
           </div>
           <div className="w-1/2 p-10">
-            <div>
-              <h1>Отображение ракеты</h1>
-              {cubes}
-            </div>
-            <div>
-              <h1>График на основе двух массивов</h1>
-              {/*<Graph dataX={dataX} dataY={dataY} />*/}
+            <div className="fixed">
+              <div>
+                <h1>Отображение ракеты</h1>
+                {cubes}
+              </div>
+              <div>
+                <h1>График зависимости тяги двигателя от времени</h1>
+                {graph}
+              </div>
             </div>
           </div>
         </div>
