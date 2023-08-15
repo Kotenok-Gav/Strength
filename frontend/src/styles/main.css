@@ -80,18 +80,27 @@ body {
 }
 
 
-.two-window {
+.tree-window {
 	display: flex;
 	justify-content: space-around;
+}
+
+
+.one-window {
+	width: 33.333333%;
+	padding: 20px;
 }
 
 
 /* Фиксируем правую часть экрана от скрола */
 .fixed {
 	flex: 0 0 auto;
-	width: 400px; /* Ширина фиксированной правой части */
-	/* Добавьте стили для фиксированной части */
   }
+
+
+.rocket-three-D {
+	height: 80vh;
+}
 
 .none {
 	display: none !important;
